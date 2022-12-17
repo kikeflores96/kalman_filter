@@ -1085,9 +1085,9 @@ Discarded input sections
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
  .ARM.attributes
                 0x0000000000000000       0x32 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
- .text          0x0000000000000000        0x0 /tmp/ccsLIcmS.o
- .data          0x0000000000000000        0x0 /tmp/ccsLIcmS.o
- .bss           0x0000000000000000        0x0 /tmp/ccsLIcmS.o
+ .text          0x0000000000000000        0x0 /tmp/ccXu2xzI.o
+ .data          0x0000000000000000        0x0 /tmp/ccXu2xzI.o
+ .bss           0x0000000000000000        0x0 /tmp/ccXu2xzI.o
  .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x0000000000000000       0x10 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-atexit.o)
@@ -1308,7 +1308,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp
 .boot2          0x0000000010000000      0x100
                 0x0000000010000000                __boot2_start__ = .
  *(.boot2)
- .boot2         0x0000000010000000      0x100 /tmp/ccsLIcmS.o
+ .boot2         0x0000000010000000      0x100 /tmp/ccXu2xzI.o
                 0x0000000010000100                __boot2_end__ = .
                 0x0000000000000001                ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -2313,7 +2313,7 @@ LOAD CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/Raspberrypico
 LOAD CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 LOAD CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
 LOAD CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
-LOAD /tmp/ccsLIcmS.o
+LOAD /tmp/ccXu2xzI.o
 LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -2412,7 +2412,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x000000000000061c       0x2c CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
  .ARM.attributes
-                0x0000000000000648       0x22 /tmp/ccsLIcmS.o
+                0x0000000000000648       0x22 /tmp/ccXu2xzI.o
  .ARM.attributes
                 0x000000000000066a       0x1e /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
