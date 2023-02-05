@@ -82,7 +82,7 @@ Discarded input sections
                 0x0000000000000000       0x38 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
  .debug_ranges  0x0000000000000000       0x98 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
  .debug_line    0x0000000000000000      0x687 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
- .debug_str     0x0000000000000000      0x421 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+ .debug_str     0x0000000000000000      0x415 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
  .debug_frame   0x0000000000000000       0x90 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
  .ARM.attributes
@@ -205,7 +205,7 @@ Discarded input sections
  .debug_abbrev  0x0000000000000000       0x12 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
  .debug_aranges
                 0x0000000000000000       0x38 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
- .debug_str     0x0000000000000000       0xbe CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+ .debug_str     0x0000000000000000       0xb2 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
  .debug_ranges  0x0000000000000000       0x30 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
  .ARM.attributes
                 0x0000000000000000       0x22 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
@@ -268,7 +268,7 @@ Discarded input sections
                 0x0000000000000000       0x38 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .debug_ranges  0x0000000000000000      0x148 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .debug_line    0x0000000000000000      0x588 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
- .debug_str     0x0000000000000000      0x458 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+ .debug_str     0x0000000000000000      0x44c CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .debug_frame   0x0000000000000000       0x6c CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
  .ARM.attributes
@@ -322,7 +322,7 @@ Discarded input sections
                 0x0000000000000000       0x58 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/sem.c.obj
  .debug_ranges  0x0000000000000000      0x5b0 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/sem.c.obj
  .debug_line    0x0000000000000000      0x9a9 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/sem.c.obj
- .debug_str     0x0000000000000000      0x52e CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/sem.c.obj
+ .debug_str     0x0000000000000000      0x522 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/sem.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/sem.c.obj
  .debug_frame   0x0000000000000000       0xe0 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/sem.c.obj
  .ARM.attributes
@@ -359,7 +359,7 @@ Discarded input sections
                 0x0000000000000000       0x30 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
  .debug_ranges  0x0000000000000000       0x38 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
  .debug_line    0x0000000000000000      0x336 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
- .debug_str     0x0000000000000000      0x375 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+ .debug_str     0x0000000000000000      0x369 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
  .debug_frame   0x0000000000000000       0x50 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
  .ARM.attributes
@@ -384,7 +384,7 @@ Discarded input sections
                 0x0000000000000000       0x20 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/datetime.c.obj
  .debug_ranges  0x0000000000000000       0x10 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/datetime.c.obj
  .debug_line    0x0000000000000000      0x1bf CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/datetime.c.obj
- .debug_str     0x0000000000000000      0x647 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/datetime.c.obj
+ .debug_str     0x0000000000000000      0x63b CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/datetime.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/datetime.c.obj
  .debug_frame   0x0000000000000000       0x38 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/datetime.c.obj
  .ARM.attributes
@@ -439,7 +439,7 @@ Discarded input sections
                 0x0000000000000000       0x70 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/queue.c.obj
  .debug_ranges  0x0000000000000000      0x630 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/queue.c.obj
  .debug_line    0x0000000000000000      0xa7c CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/queue.c.obj
- .debug_str     0x0000000000000000      0x8dd CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/queue.c.obj
+ .debug_str     0x0000000000000000      0x8d1 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/queue.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/queue.c.obj
  .debug_frame   0x0000000000000000      0x12c CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/queue.c.obj
  .ARM.attributes
@@ -519,7 +519,7 @@ Discarded input sections
                 0x0000000000000000       0x20 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
  .debug_ranges  0x0000000000000000       0x10 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
  .debug_line    0x0000000000000000      0x2f7 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
- .debug_str     0x0000000000000000      0x386 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+ .debug_str     0x0000000000000000      0x37a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
  .debug_frame   0x0000000000000000       0x20 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
  .ARM.attributes
@@ -946,7 +946,7 @@ Discarded input sections
                 0x0000000000000000       0x30 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
  .debug_ranges  0x0000000000000000       0x50 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
  .debug_line    0x0000000000000000      0x238 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
- .debug_str     0x0000000000000000      0x66c CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+ .debug_str     0x0000000000000000      0x660 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
  .debug_frame   0x0000000000000000       0x58 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
  .ARM.attributes
@@ -1081,13 +1081,13 @@ Discarded input sections
  .debug_aranges
                 0x0000000000000000       0x18 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
  .debug_line    0x0000000000000000      0x559 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
- .debug_str     0x0000000000000000     0xd871 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
+ .debug_str     0x0000000000000000     0xd865 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
  .comment       0x0000000000000000       0x5a CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
  .ARM.attributes
                 0x0000000000000000       0x32 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
- .text          0x0000000000000000        0x0 /tmp/ccXu2xzI.o
- .data          0x0000000000000000        0x0 /tmp/ccXu2xzI.o
- .bss           0x0000000000000000        0x0 /tmp/ccXu2xzI.o
+ .text          0x0000000000000000        0x0 /tmp/ccCkw9Kw.o
+ .data          0x0000000000000000        0x0 /tmp/ccCkw9Kw.o
+ .bss           0x0000000000000000        0x0 /tmp/ccCkw9Kw.o
  .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x0000000000000000       0x10 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-atexit.o)
@@ -1308,7 +1308,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp
 .boot2          0x0000000010000000      0x100
                 0x0000000010000000                __boot2_start__ = .
  *(.boot2)
- .boot2         0x0000000010000000      0x100 /tmp/ccXu2xzI.o
+ .boot2         0x0000000010000000      0x100 /tmp/ccCkw9Kw.o
                 0x0000000010000100                __boot2_end__ = .
                 0x0000000000000001                ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -2313,7 +2313,7 @@ LOAD CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/Raspberrypico
 LOAD CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 LOAD CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
 LOAD CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
-LOAD /tmp/ccXu2xzI.o
+LOAD /tmp/ccCkw9Kw.o
 LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -2412,7 +2412,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x000000000000061c       0x2c CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
  .ARM.attributes
-                0x0000000000000648       0x22 /tmp/ccXu2xzI.o
+                0x0000000000000648       0x22 /tmp/ccCkw9Kw.o
  .ARM.attributes
                 0x000000000000066a       0x1e /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
@@ -2722,84 +2722,84 @@ LOAD linker stubs
  .debug_line    0x00000000000103f6       0x60 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .debug_line    0x0000000000010456      0x1c2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-strlen-stub.o)
 
-.debug_str      0x0000000000000000     0x46aa
- .debug_str     0x0000000000000000      0xf34 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj
-                                       0x10bc (size before relaxing)
- .debug_str     0x0000000000000f34      0x4cb CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                                        0x8c5 (size before relaxing)
- .debug_str     0x00000000000013ff      0x1e2 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                                        0x3c2 (size before relaxing)
- .debug_str     0x00000000000015e1       0xa7 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-                                        0x27e (size before relaxing)
- .debug_str     0x0000000000001688      0x112 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                                        0x3a9 (size before relaxing)
- .debug_str     0x000000000000179a      0x214 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-                                        0x586 (size before relaxing)
- .debug_str     0x00000000000019ae      0x6ac CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/time.c.obj
-                                        0xfb1 (size before relaxing)
- .debug_str     0x000000000000205a      0x1a8 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                                        0x6c9 (size before relaxing)
- .debug_str     0x0000000000002202       0x62 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
-                                        0x2b5 (size before relaxing)
- .debug_str     0x0000000000002264      0x157 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-                                        0x56c (size before relaxing)
- .debug_str     0x00000000000023bb      0x112 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                                        0x846 (size before relaxing)
- .debug_str     0x00000000000024cd      0x230 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                                        0xa95 (size before relaxing)
- .debug_str     0x00000000000026fd      0x25f CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                                        0x68e (size before relaxing)
- .debug_str     0x000000000000295c      0x2f8 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                                        0x738 (size before relaxing)
- .debug_str     0x0000000000002c54       0x7d CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-                                         0xc4 (size before relaxing)
- .debug_str     0x0000000000002cd1       0xb5 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-                                        0x320 (size before relaxing)
- .debug_str     0x0000000000002d86      0x127 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                                        0x756 (size before relaxing)
- .debug_str     0x0000000000002ead       0x9b CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-                                        0x27f (size before relaxing)
- .debug_str     0x0000000000002f48      0x1b6 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                                        0x7bb (size before relaxing)
- .debug_str     0x00000000000030fe       0x6d CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-                                         0xc0 (size before relaxing)
- .debug_str     0x000000000000316b       0xd3 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                                        0x294 (size before relaxing)
- .debug_str     0x000000000000323e       0x67 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                                         0xba (size before relaxing)
- .debug_str     0x00000000000032a5       0x6b CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                                         0xbe (size before relaxing)
- .debug_str     0x0000000000003310       0xb7 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-                                        0x6a3 (size before relaxing)
- .debug_str     0x00000000000033c7       0x71 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                                         0xc4 (size before relaxing)
- .debug_str     0x0000000000003438       0x76 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-                                         0xc9 (size before relaxing)
- .debug_str     0x00000000000034ae       0x69 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                                         0xbc (size before relaxing)
- .debug_str     0x0000000000003517       0xb3 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-                                        0x6db (size before relaxing)
- .debug_str     0x00000000000035ca       0x6f CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                                         0xc2 (size before relaxing)
- .debug_str     0x0000000000003639       0x6d CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                                         0xc0 (size before relaxing)
- .debug_str     0x00000000000036a6       0x6a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+.debug_str      0x0000000000000000     0x469e
+ .debug_str     0x0000000000000000      0xf28 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj
+                                       0x10b0 (size before relaxing)
+ .debug_str     0x0000000000000f28      0x4cb CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                                        0x8b9 (size before relaxing)
+ .debug_str     0x00000000000013f3      0x1e2 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                                        0x3b6 (size before relaxing)
+ .debug_str     0x00000000000015d5       0xa7 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+                                        0x272 (size before relaxing)
+ .debug_str     0x000000000000167c      0x112 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                                        0x39d (size before relaxing)
+ .debug_str     0x000000000000178e      0x214 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                                        0x57a (size before relaxing)
+ .debug_str     0x00000000000019a2      0x6ac CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_time/time.c.obj
+                                        0xfa5 (size before relaxing)
+ .debug_str     0x000000000000204e      0x1a8 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                                        0x6bd (size before relaxing)
+ .debug_str     0x00000000000021f6       0x62 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+                                        0x2a9 (size before relaxing)
+ .debug_str     0x0000000000002258      0x157 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                                        0x560 (size before relaxing)
+ .debug_str     0x00000000000023af      0x112 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                                        0x83a (size before relaxing)
+ .debug_str     0x00000000000024c1      0x230 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                                        0xa89 (size before relaxing)
+ .debug_str     0x00000000000026f1      0x25f CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                                        0x682 (size before relaxing)
+ .debug_str     0x0000000000002950      0x2f8 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                                        0x72c (size before relaxing)
+ .debug_str     0x0000000000002c48       0x7d CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+                                         0xb8 (size before relaxing)
+ .debug_str     0x0000000000002cc5       0xb5 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+                                        0x314 (size before relaxing)
+ .debug_str     0x0000000000002d7a      0x127 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                                        0x74a (size before relaxing)
+ .debug_str     0x0000000000002ea1       0x9b CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+                                        0x273 (size before relaxing)
+ .debug_str     0x0000000000002f3c      0x1b6 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                                        0x7af (size before relaxing)
+ .debug_str     0x00000000000030f2       0x6d CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                                         0xb4 (size before relaxing)
+ .debug_str     0x000000000000315f       0xd3 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                                        0x288 (size before relaxing)
+ .debug_str     0x0000000000003232       0x67 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                                         0xae (size before relaxing)
+ .debug_str     0x0000000000003299       0x6b CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                                         0xb2 (size before relaxing)
+ .debug_str     0x0000000000003304       0xb7 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                                        0x697 (size before relaxing)
+ .debug_str     0x00000000000033bb       0x71 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                                         0xb8 (size before relaxing)
+ .debug_str     0x000000000000342c       0x76 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
                                          0xbd (size before relaxing)
- .debug_str     0x0000000000003710      0x299 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
-                                        0x464 (size before relaxing)
- .debug_str     0x00000000000039a9      0x2d9 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                                        0xb96 (size before relaxing)
- .debug_str     0x0000000000003c82      0x2ac CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-                                        0x73f (size before relaxing)
- .debug_str     0x0000000000003f2e      0x24a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
-                                        0x5ec (size before relaxing)
- .debug_str     0x0000000000004178      0x2a2 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                                        0x87a (size before relaxing)
- .debug_str     0x000000000000441a       0xbf CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
-                                        0xbaa (size before relaxing)
- .debug_str     0x00000000000044d9       0x97 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_str     0x00000000000034a2       0x69 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                                         0xb0 (size before relaxing)
+ .debug_str     0x000000000000350b       0xb3 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                                        0x6cf (size before relaxing)
+ .debug_str     0x00000000000035be       0x6f CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                                         0xb6 (size before relaxing)
+ .debug_str     0x000000000000362d       0x6d CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                                         0xb4 (size before relaxing)
+ .debug_str     0x000000000000369a       0x6a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+                                         0xb1 (size before relaxing)
+ .debug_str     0x0000000000003704      0x299 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                                        0x458 (size before relaxing)
+ .debug_str     0x000000000000399d      0x2d9 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                                        0xb8a (size before relaxing)
+ .debug_str     0x0000000000003c76      0x2ac CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                                        0x733 (size before relaxing)
+ .debug_str     0x0000000000003f22      0x24a CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
+                                        0x5e0 (size before relaxing)
+ .debug_str     0x000000000000416c      0x2a2 CMakeFiles/kalman_filter.dir/home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                                        0x86e (size before relaxing)
+ .debug_str     0x000000000000440e       0xbf CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
+                                        0xb9e (size before relaxing)
+ .debug_str     0x00000000000044cd       0x97 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
                                          0xa3 (size before relaxing)
- .debug_str     0x0000000000004570      0x13a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-strlen-stub.o)
+ .debug_str     0x0000000000004564      0x13a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg.a(lib_a-strlen-stub.o)
                                         0x5c2 (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x1894
