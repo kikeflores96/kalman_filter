@@ -1,0 +1,17 @@
+* Influence bruit d'évolution : 
+- les incertitudes sur les positions des amers augmentent (les ellipses s'allongent selon les tangentes au cercle centré sur la trajectoire  pour le bruit angulaire et selon les rayons pour le bruit en distance)
+- les biais sur les positions estimées augementent, en effet, il est plus compliqué de positionner les amers si l'incetitude sur sa position est important
+
+* Influence bruit de mesure:
+- les incertitudes sur les positions des amers sont importantes au départ mais diminuent rapidement
+- les biais sur les positionts estimés sont assez faible (en effet contrairement au cas précédents, seuls les bruits de mesures viennent réellement perturber les estimations et donc la convergence est plus aisée)
+
+* Changement de position initiale : 
+- la carte sera biaisée mais correcte (si covariance nulle)  (rotation + translation), en effet à aucun moment des positions absolues sont prises en compte, seules des positions relatives sont considérées
+
+* Augmentation covariance initiale : 
+- les incertitudes sur les positions des amers sont augmentées
+- la carte est correcte mais biaisée de manière aléatoire, en effet comme précedemment aucune positions absolue ne pourra venir corriger un biais initial
+
+* 
+
