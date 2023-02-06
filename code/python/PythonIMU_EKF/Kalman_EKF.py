@@ -62,10 +62,10 @@ class System:
         self.pBar = None
         self.accelReference = np.array([0, 0, -1]).transpose()
         self.magReference = np.array([0, -1, 0]).transpose()
-        self.mag_Ainv = np.array([[ 4.34883093e-03, -4.85734863e-05,  2.71406130e-04],
-                                  [-4.85734863e-05,  4.10542322e-03, -6.63845234e-05],
-                                  [ 2.71406130e-04, -6.63845234e-05,  4.34471427e-03]])
-        self.mag_b = np.array([7.43143287, -95.03272074, 397.19236686]).transpose()
+        self.mag_Ainv = np.array([[ 4.19557083e-03,  4.56214698e-05,  2.35322788e-04],
+                                  [ 4.56214698e-05,  4.15498076e-03, -8.79800501e-05],
+                                  [ 2.35322788e-04, -8.79800501e-05,  4.35812198e-03]])
+        self.mag_b = np.array([-29.37120635, -115.13934479, 379.68390952]).transpose()
 
     def normalizeQuat(self, q):
         mag = (q[0]**2 + q[1]**2 + q[2]**2 + q[3]**2)**0.5
