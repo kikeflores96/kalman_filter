@@ -64,16 +64,16 @@ void IMU :: initialize(){
 
 void IMU :: applycalibration(int16_t imusensor[3][3]){
   imusensor[0][0] = accxSF*(imusensor[0][0] - accxbias);
-  imusensor[0][1] = -accySF*(imusensor[0][1] - accybias);
+  imusensor[0][1] = accySF*(imusensor[0][1] - accybias);
   imusensor[0][2] = acczSF*(imusensor[0][2] - acczbias);
 
-  imusensor[1][0] =  -gyroxSF*(imusensor[1][0] - gyroxbias);
+  imusensor[1][0] =  gyroxSF*(imusensor[1][0] - gyroxbias);
   imusensor[1][1] =  gyroySF*(imusensor[1][1] - gyroybias);
-  imusensor[1][2] =  -gyrozSF*(imusensor[1][2] - gyrozbias);
+  imusensor[1][2] =  gyrozSF*(imusensor[1][2] - gyrozbias);
 
-  imusensor[2][0] = -magxSF*(imusensor[2][0] - magxbias);
+  imusensor[2][0] = magxSF*(imusensor[2][0] - magxbias);
   imusensor[2][1] = magySF*(imusensor[2][1] - magybias);
-  imusensor[2][2] = -magzSF*(imusensor[2][2] - magzbias);
+  imusensor[2][2] = magzSF*(imusensor[2][2] - magzbias);
   
 }
 
@@ -101,7 +101,7 @@ void IMU :: readsensor(int16_t imusensor[3][3]){
     imusensor[2][0]=-(Mag[3]<<8 | Mag[2]);
     imusensor[2][1]=-(Mag[1]<<8 | Mag[0]);
     imusensor[2][2]=-(Mag[5]<<8 | Mag[4]);
-    //applycalibration(imusensor);
+    applycalibration(imusensor);
 
   
 }
