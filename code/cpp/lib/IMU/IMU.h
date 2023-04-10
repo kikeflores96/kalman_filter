@@ -37,8 +37,8 @@ class IMU {
     // Sensor_axis = Sensor_axis_SF*(sensor_axis_raw - sensor_axis_bias)
     // Mag_x = Mag_x_SF*(Mag_x_raw - Mag_x_bias)
     int magxbias = 0, magybias = 0, magzbias = 0;
-    int accxbias = -1100, accybias = -1250, acczbias = -2100;
-    int gyroxbias = 94, gyroybias = 3, gyrozbias = -68;
+    int accxbias = 0, accybias = 0, acczbias = 0;
+    int gyroxbias = 94, gyroybias = 3, gyrozbias = -58;
     int magxSF = 1, magySF = 1, magzSF = 1;
     int accxSF = 1, accySF = 1, acczSF = 1;
     int gyroxSF = 1, gyroySF = 1, gyrozSF = 1;

@@ -10,6 +10,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from scipy import linalg
+import pylab
+
+params = { 'backend': 'ps',
+           'axes.labelsize': 20,
+           'font.size': 20,
+           'xtick.labelsize': 16,
+           'ytick.labelsize': 16,
+           'text.usetex': True }
+pylab.rcParams.update(params)
 
 def fitEllipsoid(magX, magY, magZ):
     a1 = magX ** 2
@@ -65,25 +74,43 @@ def fitEllipsoid(magX, magY, magZ):
 
 def main():
     # data = np.genfromtxt('magnetometer_data.csv', dtype = float, delimiter=',')
-    data = np.genfromtxt('24_02_2022_2.csv', dtype = float, delimiter=',')
+    data = np.genfromtxt('mag_cal_01.csv', dtype = float, delimiter=',')
 
     # magX = data[:, 6] * 0.00080
     # magY = data[:, 7] * 0.00080
     # magZ = data[:, 8] * 0.00080
+    int16bit_range = 32767.5
     
-    magX = data[:, 6] 
-    magY = data[:, 7]
-    magZ = data[:, 8]
+    
+    magX = data[:, 6]/int16bit_range*4800 
+    magY = data[:, 7]/int16bit_range*4800
+    magZ = data[:, 8]/int16bit_range*4800
+    
+    mag_x0 = 23.87
+    mag_y0 = 0.094
+    mag_z0 = 36.93
+    
+    mod_mag = np.linalg.norm(np.array([mag_x0,mag_y0, mag_z0]))
+    
+    magX /= mod_mag
+    magY /= mod_mag
+    magZ /= mod_mag
+    
+    # magX = data[:, 6]
+    # magY = data[:, 7]
+    # magZ = data[:, 8]
 
-
-    fig1 = plt.figure(1)
-    ax1 = fig1.add_subplot(111, projection='3d')
-
+    plt.close('all')
+    fig1, axes = plt.subplots(1, 2, figsize = (9, 5), constrained_layout = True, subplot_kw={'projection': '3d', 'box_aspect': (1,1,1)})
+    # axes[0] = plt.axes(projection='3d')
+    plt.suptitle('$\mathrm{Calibracion\>del\>magnetometro}$')
+    ax1 = axes[0]
+    ax1.set_box_aspect(aspect = (1,1,1.4))
     ax1.scatter(magX, magY, magZ, s=5, color='r')
-    ax1.set_xlabel('X')
-    ax1.set_ylabel('Y')
-    ax1.set_zlabel('Z')
-
+    ax1.set_xlabel('$\\tilde{h}_x$')
+    ax1.set_ylabel('$\\tilde{h}_y$')
+    ax1.set_zlabel('$\\tilde{h}_z$')
+    
     # plot unit sphere
     u = np.linspace(0, 2 * np.pi, 100)
     v = np.linspace(0, np.pi, 100)
@@ -122,13 +149,14 @@ def main():
         totalError += err
     print("Total Error: %f" % totalError)
 
-    fig2 = plt.figure(2)
-    ax2 = fig2.add_subplot(111, projection='3d')
-
+    # fig2 = plt.figure(2)
+    # axes[1] = plt.axes(projection='3d')
+    ax2 = axes[1]
     ax2.scatter(calibratedX, calibratedY, calibratedZ, s=1, color='r')
-    ax2.set_xlabel('X')
-    ax2.set_ylabel('Y')
-    ax2.set_zlabel('Z')
+    ax2.set_xlabel('$\\tilde{h}_x$')
+    ax2.set_ylabel('$\\tilde{h}_y$')
+    ax2.set_zlabel('$\\tilde{h}_z$')
+    ax2.set_box_aspect(aspect = (1,1,1))
 
     # plot unit sphere
     u = np.linspace(0, 2 * np.pi, 100)
@@ -138,6 +166,8 @@ def main():
     z = np.outer(np.ones(np.size(u)), np.cos(v))
     ax2.plot_wireframe(x, y, z, rstride=10, cstride=10, alpha=0.5)
     ax2.plot_surface(x, y, z, alpha=0.3, color='b')
+    # plt.tight_layout()
+    plt.grid(True)
     plt.show()
 
 

@@ -1,2 +1,0 @@
-/bin/arm-none-eabi-ar qc libmylib.a  CMakeFiles/mylib.dir/IMU.cpp.obj
-/bin/arm-none-eabi-ranlib libmylib.a

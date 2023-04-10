@@ -1,4 +1,4 @@
-// Padded and checksummed version of: /home/kike/Documents/Droneproject/RaspberrypicoCpp/kalman_filter/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+// Padded and checksummed version of: /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 .cpu cortex-m0plus
 .thumb

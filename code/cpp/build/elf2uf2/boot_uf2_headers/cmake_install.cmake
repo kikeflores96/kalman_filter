@@ -1,4 +1,4 @@
-# Install script for directory: /home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src/common/boot_uf2
+# Install script for directory: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/common/boot_uf2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

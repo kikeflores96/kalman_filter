@@ -1,4 +1,4 @@
-# Install script for directory: /home/kike/Documents/Droneproject/RaspberrypicoCpp/pico/pico-sdk/src
+# Install script for directory: /home/kike/Documents/tfm_uned/pico/pico-sdk/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -34,9 +34,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/kike/Documents/Droneproject/RaspberrypicoCpp/kalman_filter/build/pico-sdk/src/common/cmake_install.cmake")
-  include("/home/kike/Documents/Droneproject/RaspberrypicoCpp/kalman_filter/build/pico-sdk/src/rp2_common/cmake_install.cmake")
-  include("/home/kike/Documents/Droneproject/RaspberrypicoCpp/kalman_filter/build/pico-sdk/src/rp2040/cmake_install.cmake")
+  include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/pico-sdk/src/common/cmake_install.cmake")
+  include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/pico-sdk/src/rp2_common/cmake_install.cmake")
+  include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/pico-sdk/src/rp2040/cmake_install.cmake")
 
 endif()
 

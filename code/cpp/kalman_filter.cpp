@@ -126,9 +126,9 @@ double int16bit_range = 32767.5;
         double accy = imusensor[0][1]/int16bit_range*4.0*9.81;
         double accz = imusensor[0][2]/int16bit_range*4.0*9.81;
 
-        double gyrox = imusensor[1][0]/int16bit_range*1000*9.81;
-        double gyroy = imusensor[1][1]/int16bit_range*1000*9.81;
-        double gyroz = imusensor[1][2]/int16bit_range*1000*9.81;
+        double gyrox = imusensor[1][0]/int16bit_range*1000;
+        double gyroy = imusensor[1][1]/int16bit_range*1000;
+        double gyroz = imusensor[1][2]/int16bit_range*1000;
 
 
         
