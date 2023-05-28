@@ -1,0 +1,82 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Avances en UAVs and MAVs}{1}{section.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Filtro de Kalman}{3}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Microcontroladores}{5}{section.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Fundamentos Teóricos}{9}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Sistemas de referencia}{9}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.1}Sistema de referencia inercial: $(O_I, x_I, y_I, z_I)$}{9}{subsection.2.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.2}Sistema de referencia ejes cuerpo: $(O_b, x_b, y_b, z_b)$ }{10}{subsection.2.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Formalismos para describir la actitud}{10}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.1}Ángulos de Euler}{10}{subsection.2.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Fundamentos}{10}{section*.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Propagación de ángulos de Euler}{12}{section*.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.2}Cuaternios}{12}{subsection.2.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Fundamentos}{12}{section*.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Propagación de cuaternios}{14}{section*.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Relación entre los cuaternios y los ángulos de Euler}{14}{section*.12}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Dispositivo experimental}{17}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Raspberry Pi Pico}{17}{section.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.1}Especificaciones}{17}{subsection.3.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.2}Librerías}{18}{subsection.3.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.3}Picoprobe}{19}{subsection.3.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Sensor MPU 9250}{19}{section.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Caracterización de los sensores}{21}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Generalidades}{21}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}Random walk}{21}{subsection.4.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Dealineación interna de los sensores}{21}{subsection.4.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Calibración del giróscopo.}{21}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Calibración del acelerómetro}{22}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}Calibración del magnetómetro.}{25}{section.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Extended Kalman Filter}{31}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Accelerometer data}{33}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Magnetometer data}{37}{section.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Quaternion EKF Implementation}{40}{section.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.1}Prediction}{40}{subsection.5.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Equation 1K}{40}{section*.23}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Equation 2K}{41}{section*.24}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.2}Update}{41}{subsection.5.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Equation 3K}{41}{section*.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Equation 4K}{42}{section*.26}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Equation 5K}{43}{section*.27}%
