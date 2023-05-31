@@ -17,6 +17,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../lib/CMakeLists.txt"
   "../lib/IMU/CMakeLists.txt"
   "../lib/attitude/CMakeLists.txt"
+  "../lib/matrix_operations/CMakeLists.txt"
   "../pico_sdk_import.cmake"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/CMakeLists.txt"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/cmake/Platform/PICO.cmake"
@@ -225,6 +226,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "pico-sdk/docs/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/IMU/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/matrix_operations/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/attitude/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

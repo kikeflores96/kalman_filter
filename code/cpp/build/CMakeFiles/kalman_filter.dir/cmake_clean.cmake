@@ -49,6 +49,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj"
   "CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj"
   "CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj"
+  "CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj"
   "kalman_filter.elf"
   "kalman_filter.pdb"
 )

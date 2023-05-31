@@ -1,6 +1,10 @@
 #include "IMU.h"
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
+#include <vector>
+#include "../../lib/matrix_operations/matrix_operations.h"
+#include <cmath>
+
 
 // Write a byte (Data) in device (Address) at register (Register)
 void I2CwriteByte(i2c_inst_t *i2c, const uint addr, const uint8_t reg, uint8_t data) {
@@ -60,25 +64,6 @@ void IMU :: initialize(){
   
 }
 
-
-
-void IMU :: applycalibration(int16_t imusensor[3][3]){
-  imusensor[0][0] = accxSF*(imusensor[0][0] - accxbias);
-  imusensor[0][1] = accySF*(imusensor[0][1] - accybias);
-  imusensor[0][2] = acczSF*(imusensor[0][2] - acczbias);
-
-  imusensor[1][0] =  gyroxSF*(imusensor[1][0] - gyroxbias);
-  imusensor[1][1] =  gyroySF*(imusensor[1][1] - gyroybias);
-  imusensor[1][2] =  gyrozSF*(imusensor[1][2] - gyrozbias);
-
-  imusensor[2][0] = magxSF*(imusensor[2][0] - magxbias);
-  imusensor[2][1] = magySF*(imusensor[2][1] - magybias);
-  imusensor[2][2] = magzSF*(imusensor[2][2] - magzbias);
-  
-}
-
-
-
 void IMU :: readsensor(int16_t imusensor[3][3]){
     uint8_t Buf[14];
     I2Cread(I2C_PORT, MPU9250_ADDRESS,0x3B, 14, Buf);
@@ -101,7 +86,40 @@ void IMU :: readsensor(int16_t imusensor[3][3]){
     imusensor[2][0]=-(Mag[3]<<8 | Mag[2]);
     imusensor[2][1]=-(Mag[1]<<8 | Mag[0]);
     imusensor[2][2]=-(Mag[5]<<8 | Mag[4]);
-    applycalibration(imusensor);
 
   
 }
+
+void IMU:: applyrange(int16_t imusensor[3][3], std::vector<double>& gyro, std::vector<double>& mag, std::vector<double>& acc){
+    int     n = gyro.size();
+    double  int16bit_range = 32767.5;
+    for(int i=0; i<n; i++){
+        // printf("%i\t", i);
+        acc[i]  = double(imusensor[0][i])/ int16bit_range * 4.0 * 9.81;
+
+        // printf("%f\t", acc[i]);
+        gyro[i] = double(imusensor[1][i])/ int16bit_range * 1000 /180*acos(-1);
+        mag[i]  = imusensor[2][i]/ int16bit_range * 4800/45.0222;
+    }
+}
+
+
+void IMU :: applycalibration(std::vector<double> &gyro, std::vector<double> &acc, std::vector<double> &mag){
+    int n = gyro.size();
+    for(int i =0; i<n; i++){
+        gyro[i] = gyro[i] - gyro_bias[i];
+        acc[i]  = acc[i] - acc_bias[i];
+        mag[i]  = mag[i] - mag_bias[i];
+    }
+
+    acc = matrixVectorProduct(matrixInverse(acc_S), acc);
+    acc = matrixVectorProduct(acc_T, acc);
+    
+    mag = matrixVectorProduct(mag_A_inv, mag);
+    
+    
+  
+}
+
+
+

@@ -1,149 +1,157 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "hardware/spi.h"
+#include "hardware/uart.h"
 #include "hardware/i2c.h"
 #include "lib/IMU/IMU.h"
-#include "hardware/uart.h"
-
-
-
-// SPI Defines
-// We are going to use SPI 0, and allocate it to the following GPIO pins
-// Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
-#define SPI_PORT spi0
-#define PIN_MISO 16
-#define PIN_CS   17
-#define PIN_SCK  18
-#define PIN_MOSI 19
+#include <vector>
+#include <iostream>
+#include "lib/matrix_operations/matrix_operations.h"
 
 // Define uart port instance
 #define UART_PORT uart0
 
+// Define a IMU-type object called imu
 IMU imu;
 
+// Global variables 
+int16_t   imusensor[3][3];
+char coordinates[3] = {'x', 'y', 'z'};
+double    int16bit_range = 32767.5;
 
-void initialize(){
-    stdio_init_all();
-
-    // Initialize UART PORT
-    uart_init(UART_PORT, 115200);
-
-
-    printf("\n########################################################\n");
-    printf("#################### Initialization ####################\n");
-    printf("########################################################\n\n");
-    // SPI initialisation. This example will use SPI at 1MHz.
-    int spifreq = 1000000;
-    spi_init(SPI_PORT, spifreq);
-    gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);
-    gpio_set_function(PIN_CS,   GPIO_FUNC_SIO);
-    gpio_set_function(PIN_SCK,  GPIO_FUNC_SPI);
-    gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
-    // Chip select is active-low, so we'll initialise it to a driven-high state
-    gpio_set_dir(PIN_CS, GPIO_OUT);
-    gpio_put(PIN_CS, 1);
-    printf("#################  SPI port initialized ################\n");
-    printf("\nSPI frequency %i Hz \n", spifreq);
-    printf("MISO\tpin:\t%i \n", PIN_MISO);
-    printf("CS\tpin:\t%i \n", PIN_CS);
-    printf("SCK\tpin:\t%i \n", PIN_SCK);
-    printf("MOSI\tpin:\t%i \n", PIN_MOSI);
-}
+std::vector<double> gyro(3);
+std::vector<double> acc(3);
+std::vector<double> mag(3);
+std::vector<std::vector<double>> A(3,std::vector<double>(3,0));
 
 
-int16_t       imusensor[3][3];
+// Main loop timer
+struct repeating_timer main_timer;  // Main loop timer
+int main_loop_period = -50;          // Main loop period in ms
+uint64_t time0_ml = time_us_64();
+uint64_t time1_ml;
+uint64_t dt_ml;
 
-typedef union{
- int16_t number;
- uint8_t bytes[2];
+// Communication with PC
+
+typedef union
+{
+  int16_t number;
+  uint8_t bytes[2];
 } INTUNION_t;
 
 
 
-void sendToPC(int16_t data1, int16_t data2, int16_t data3, 
+
+void sendToPC(int16_t data1, int16_t data2, int16_t data3,
               int16_t data4, int16_t data5, int16_t data6,
               int16_t data7, int16_t data8, int16_t data9)
 {
   uint8_t buf[18];
   int16_t data[9] = {data1, data2, data3, data4, data5, data6, data7, data8, data9};
-  //int16_t data[9] = {0,0,0,0,0,0,0,0,0};
-  for (int i = 0; i < 9; i++) {
+  for (int i = 0; i < 9; i++)
+  {
     INTUNION_t myint;
     myint.number = data[i];
-    for (int j = 0; j < 2; j++) {
-      buf[i*2 + j] = myint.bytes[j];
-      //buf[i*2 + j] = 0;
+    for (int j = 0; j < 2; j++)
+    {
+      buf[i * 2 + j] = myint.bytes[j];
     }
   }
 
-  //buf[0] = 5;
-  if (uart_is_writable(UART_PORT)){
+  if (uart_is_writable(UART_PORT))
+  {
     uart_write_blocking(UART_PORT, buf, 18);
   }
-  
-  
 }
 
 
-#define PARITY    UART_PARITY_NONE
+
+// Initialization
+
+void initialize()
+{
+  // Standard Input Output Initialization
+  stdio_init_all();
+  // Initialize UART PORT
+  uart_init(UART_PORT, 115200);
+
+}
+
+
+
+
+
+
+
+bool main_loop(struct repeating_timer *t) {
+  // Compute main loop period
+  time1_ml  = time_us_64();         // Get global time in microseconds
+  dt_ml     = time1_ml - time0_ml;  // Get deltaT
+  time0_ml  = time1_ml;             // Reassign time0
+  // printf("deltaT = %lld\t\n", dt_ml/1000);
+
+
+  imu.readsensor(imusensor);
+  imu.applyrange(imusensor, gyro, mag, acc);
+  imu.applycalibration(gyro, acc, mag);
+
+  int n = gyro.size();
+
+  for(int i=0; i<n; i++){
+        printf("Acc%c = %.3f\t", coordinates[i], acc[i]);
+    }
+    for(int i=0; i<n; i++){
+        printf("Gyro%c = %.3f\t", coordinates[i], gyro[i]);
+    }
+    for(int i=0; i<n; i++){
+        printf("Mag%c = %.3f\t", coordinates[i], mag[i]);
+    }
+    printf("\n");
+  // sendToPC(imusensor[1][0], imusensor[1][1], imusensor[1][2],
+  //           imusensor[0][0], imusensor[0][1], imusensor[0][2],
+  //           imusensor[2][0], imusensor[2][1], imusensor[2][2]);
+
+  // double accx = imusensor[0][0] / int16bit_range * 4.0 * 9.81;
+  // double accy = imusensor[0][1] / int16bit_range * 4.0 * 9.81;
+  // double accz = imusensor[0][2] / int16bit_range * 4.0 * 9.81;
+
+  // double gyrox = imusensor[1][0] / int16bit_range * 1000;
+  // double gyroy = imusensor[1][1] / int16bit_range * 1000;
+  // double gyroz = imusensor[1][2] / int16bit_range * 1000;
+
+  // printf("Accx =\t%.2f\tAccy =\t%.2f\tAccz =\t%.2f\tGyrox =\t%.2f\tGyroy =\t%.2f\tGyroz =\t%.2f\tMagx =\t%i\tMagy =\t%i\tMagz =\t%i\n",
+  //   acc[0], acc[1], acc[2],
+  //   gyro[0], gyro[1], gyro[2],
+  //   mag[0], mag[1], mag[2]);
+
+  // printf("Accx =\t%i\tAccy =\t%i\tAccz =\t%i\tGyrox =\t%i\tGyroy =\t%i\tGyroz =\t%i\tMagx =\t%i\tMagy =\t%i\tMagz =\t%i\n",
+  //           imusensor[0][0], imusensor[0][1], imusensor[0][2],
+  //           imusensor[1][0], imusensor[1][1], imusensor[1][2],
+  //           imusensor[2][0], imusensor[2][1], imusensor[2][2]);
+  
+  
+  // uint64_t time2_ml  = time_us_64();         // Get global time in microseconds
+  // uint64_t dt2_ml     = time2_ml - time1_ml;  // Get deltaT
+  // printf("looptime = %lld\t\n", dt2_ml/1000);
+  return true;
+}
+
+
 
 int main()
 {
-       
-    initialize();
-    imu.initialize();
-    uart_init(UART_PORT, 115200);
-    //uart_puts(UART_PORT, "\nUART port is working\n");
-    uart_set_format(UART_PORT, 8, 1, PARITY);
-    uart_set_hw_flow(UART_PORT, 0,0);
-     uart_set_irq_enables(UART_PORT, true, false);
-      uart_set_translate_crlf(UART_PORT, true);
-      uart_set_fifo_enabled(UART_PORT, true);
-    //printf("\nIs uart writable?\t%i", uart_is_writable(UART_PORT));
+  // Initializa hardware
+  initialize();
+  // Initialize IMU
+  imu.initialize();
+  // Create a repeating timer for the main loop
+  add_repeating_timer_ms(main_loop_period, main_loop, NULL, &main_timer);
+  // bool cancelled = cancel_repeating_timer(&main_timer);
 
 
-    // i2c_inst_t *i2c = I2C_PORT;
-    // int16_t data[9];
+  while (true)
+  {
 
-    long time0 = to_us_since_boot(get_absolute_time());
-    long time1;
-    long dt;
-
-double int16bit_range = 32767.5;
-
-    
-
-    while(true){
-        time1 = to_us_since_boot(get_absolute_time());
-        dt = time1 - time0;
-        time0 = time1;
-        imu.readsensor(imusensor);
-        sendToPC(   imusensor[1][0],  imusensor[1][1], imusensor[1][2],
-                    imusensor[0][0],  imusensor[0][1], imusensor[0][2],
-                    imusensor[2][0],  imusensor[2][1], imusensor[2][2]);
-
-        double accx = imusensor[0][0]/int16bit_range*4.0*9.81;
-        double accy = imusensor[0][1]/int16bit_range*4.0*9.81;
-        double accz = imusensor[0][2]/int16bit_range*4.0*9.81;
-
-        double gyrox = imusensor[1][0]/int16bit_range*1000;
-        double gyroy = imusensor[1][1]/int16bit_range*1000;
-        double gyroz = imusensor[1][2]/int16bit_range*1000;
-
-
-        
-        
-        // printf("Accx =\t%.2f\tAccy =\t%.2f\tAccz =\t%.2f\tGyrox =\t%.2f\tGyroy =\t%.2f\tGyroz =\t%.2f\tMagx =\t%i\tMagy =\t%i\tMagz =\t%i\n", 
-        //   accx, accy, accz,
-        //   gyrox, gyroy, gyroz,
-        //   imusensor[2][0], imusensor[2][1], imusensor[2][2]);
-
-        // printf("Accx =\t%i\tAccy =\t%i\tAccz =\t%i\tGyrox =\t%i\tGyroy =\t%i\tGyroz =\t%i\tMagx =\t%i\tMagy =\t%i\tMagz =\t%i\n", 
-        //           imusensor[0][0], imusensor[0][1], imusensor[0][2],
-        //           imusensor[1][0], imusensor[1][1], imusensor[1][2],
-        //           imusensor[2][0], imusensor[2][1], imusensor[2][2]);
-        sleep_ms(50);
-    }
-
-    return 0;
+  }
+  return 0;
 }

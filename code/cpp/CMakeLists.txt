@@ -38,6 +38,7 @@ target_link_libraries(kalman_filter
         hardware_i2c
         imu
         attitude
+        matrix_operations
         )
 #target_link_libraries(kalman_filter  imu)
 
@@ -45,9 +46,7 @@ pico_add_extra_outputs(kalman_filter)
 
 add_subdirectory(lib)
 
-
-
 target_link_libraries (kalman_filter Eigen3::Eigen)
-
+#target_link_libraries(kalman_filter stdc++fs)
 
 

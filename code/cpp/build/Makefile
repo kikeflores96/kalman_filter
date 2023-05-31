@@ -1366,6 +1366,33 @@ lib/attitude/attitude.cpp.s:
 	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.s
 .PHONY : lib/attitude/attitude.cpp.s
 
+lib/matrix_operations/matrix_operations.obj: lib/matrix_operations/matrix_operations.cpp.obj
+
+.PHONY : lib/matrix_operations/matrix_operations.obj
+
+# target to build an object file
+lib/matrix_operations/matrix_operations.cpp.obj:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj
+.PHONY : lib/matrix_operations/matrix_operations.cpp.obj
+
+lib/matrix_operations/matrix_operations.i: lib/matrix_operations/matrix_operations.cpp.i
+
+.PHONY : lib/matrix_operations/matrix_operations.i
+
+# target to preprocess a source file
+lib/matrix_operations/matrix_operations.cpp.i:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.i
+.PHONY : lib/matrix_operations/matrix_operations.cpp.i
+
+lib/matrix_operations/matrix_operations.s: lib/matrix_operations/matrix_operations.cpp.s
+
+.PHONY : lib/matrix_operations/matrix_operations.s
+
+# target to generate assembly for a file
+lib/matrix_operations/matrix_operations.cpp.s:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.s
+.PHONY : lib/matrix_operations/matrix_operations.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1510,6 +1537,9 @@ help:
 	@echo "... lib/attitude/attitude.obj"
 	@echo "... lib/attitude/attitude.i"
 	@echo "... lib/attitude/attitude.s"
+	@echo "... lib/matrix_operations/matrix_operations.obj"
+	@echo "... lib/matrix_operations/matrix_operations.i"
+	@echo "... lib/matrix_operations/matrix_operations.s"
 .PHONY : help
 
 

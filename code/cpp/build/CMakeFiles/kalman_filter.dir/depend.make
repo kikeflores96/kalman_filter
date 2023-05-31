@@ -1021,6 +1021,7 @@ CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_
 
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: ../kalman_filter.cpp
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: ../lib/IMU/IMU.h
+CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: ../lib/matrix_operations/matrix_operations.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/boards/include/boards/pico.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/common/pico_base/include/pico.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
@@ -1038,7 +1039,6 @@ CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_une
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
-CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h
@@ -1046,7 +1046,6 @@ CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_une
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h
-CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h
@@ -1054,7 +1053,6 @@ CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_une
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h
-CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h
 CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
@@ -1065,6 +1063,7 @@ CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj: generated/pico_base/pico/ver
 
 CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj: ../lib/IMU/IMU.cpp
 CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj: ../lib/IMU/IMU.h
+CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj: ../lib/matrix_operations/matrix_operations.h
 CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/boards/include/boards/pico.h
 CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/common/pico_base/include/pico.h
 CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj: /home/kike/Documents/tfm_uned/pico/pico-sdk/src/common/pico_base/include/pico/assert.h
@@ -1246,4 +1245,6 @@ CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj: /usr/include/eigen3/
 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+
+CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj: ../lib/matrix_operations/matrix_operations.cpp
 

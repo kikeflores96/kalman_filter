@@ -79,18 +79,21 @@ clean: lib/clean
 
 # Recursive "all" directory target.
 lib/all: lib/IMU/all
+lib/all: lib/matrix_operations/all
 lib/all: lib/attitude/all
 
 .PHONY : lib/all
 
 # Recursive "preinstall" directory target.
 lib/preinstall: lib/IMU/preinstall
+lib/preinstall: lib/matrix_operations/preinstall
 lib/preinstall: lib/attitude/preinstall
 
 .PHONY : lib/preinstall
 
 # Recursive "clean" directory target.
 lib/clean: lib/IMU/clean
+lib/clean: lib/matrix_operations/clean
 lib/clean: lib/attitude/clean
 
 .PHONY : lib/clean
@@ -130,6 +133,24 @@ lib/attitude/preinstall:
 lib/attitude/clean:
 
 .PHONY : lib/attitude/clean
+
+#=============================================================================
+# Directory level rules for directory lib/matrix_operations
+
+# Recursive "all" directory target.
+lib/matrix_operations/all:
+
+.PHONY : lib/matrix_operations/all
+
+# Recursive "preinstall" directory target.
+lib/matrix_operations/preinstall:
+
+.PHONY : lib/matrix_operations/preinstall
+
+# Recursive "clean" directory target.
+lib/matrix_operations/clean:
+
+.PHONY : lib/matrix_operations/clean
 
 #=============================================================================
 # Directory level rules for directory pico-sdk
@@ -1682,12 +1703,12 @@ CMakeFiles/kalman_filter.dir/all: CMakeFiles/ELF2UF2Build.dir/all
 CMakeFiles/kalman_filter.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
 	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/depend
 	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74 "Built target kalman_filter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75 "Built target kalman_filter"
 .PHONY : CMakeFiles/kalman_filter.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/kalman_filter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles 63
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles 64
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kalman_filter.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/kalman_filter.dir/rule

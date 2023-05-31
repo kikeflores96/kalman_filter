@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
+#include <vector>
 
 #define I2C_PORT i2c0
 #define I2C_SDA 4
@@ -42,10 +43,22 @@ class IMU {
     int magxSF = 1, magySF = 1, magzSF = 1;
     int accxSF = 1, accySF = 1, acczSF = 1;
     int gyroxSF = 1, gyroySF = 1, gyrozSF = 1;
+    std::vector<std::vector<double>> mag_A_inv = {{1.2535, -0.0207, 0.0725},{-0.0207, 1.2612, -0.0207},{0.0725, -0.0207, 1.2737}};
+    std::vector<double> mag_bias = {-0.0724,-0.3814, 1.2595};
+
+    double kx = 0.9957, ky = 0.9898, kz = 0.9666;
+    double ayz = 0.01423, azy = 0.05225, azx = 0.00074;
+    std::vector<std::vector<double>> acc_T = {{1, -ayz, azy},{0, 1, -azx},{0, 0, 1}};
+    std::vector<std::vector<double>> acc_S = {{kx, 0, 0},{0, ky, 0},{0, 0, kz}};
+    std::vector<double> acc_bias = {-0.9497,-1.5212, -1.5564};
+
+    std::vector<double> gyro_bias = {0.0504, 0.0017, -0.0309};
+
   public:
     void initialize();
     void readsensor(int16_t imusensor[3][3]);
-    void applycalibration(int16_t imusensor[3][3]);
+    void applyrange(int16_t imusensor[3][3], std::vector<double> &gyro, std::vector<double> &mag, std::vector<double> &acc);
+    void applycalibration(std::vector<double> &gyro, std::vector<double> &acc, std::vector<double> &mag);
 };
 
 #endif
