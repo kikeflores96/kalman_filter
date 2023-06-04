@@ -138,7 +138,7 @@ def initializeCube():
 
 if __name__ == '__main__':
     # portName = '/dev/ttyUSB0'
-    portName = '/dev/ttyACM0'
+    portName = '/dev/ttyACM1'
     baudRate = 115200
     dataNumBytes = 2  # number of bytes of 1 data point
     numParams = 9  # number of plots in 1 graph

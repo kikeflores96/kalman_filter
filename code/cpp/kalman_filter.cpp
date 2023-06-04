@@ -26,7 +26,7 @@ std::vector<std::vector<double>> A(3,std::vector<double>(3,0));
 
 // Main loop timer
 struct repeating_timer main_timer;  // Main loop timer
-int main_loop_period = -50;          // Main loop period in ms
+int main_loop_period = -10;          // Main loop period in ms
 uint64_t time0_ml = time_us_64();
 uint64_t time1_ml;
 uint64_t dt_ml;
@@ -99,14 +99,14 @@ bool main_loop(struct repeating_timer *t) {
 
   for(int i=0; i<n; i++){
         printf("Acc%c = %.3f\t", coordinates[i], acc[i]);
-    }
-    for(int i=0; i<n; i++){
+  }
+  for(int i=0; i<n; i++){
         printf("Gyro%c = %.3f\t", coordinates[i], gyro[i]);
-    }
-    for(int i=0; i<n; i++){
+  }
+  for(int i=0; i<n; i++){
         printf("Mag%c = %.3f\t", coordinates[i], mag[i]);
-    }
-    printf("\n");
+  }
+  printf("\n");
   // sendToPC(imusensor[1][0], imusensor[1][1], imusensor[1][2],
   //           imusensor[0][0], imusensor[0][1], imusensor[0][2],
   //           imusensor[2][0], imusensor[2][1], imusensor[2][2]);

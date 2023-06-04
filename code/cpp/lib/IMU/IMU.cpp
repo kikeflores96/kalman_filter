@@ -69,21 +69,41 @@ void IMU :: readsensor(int16_t imusensor[3][3]){
     I2Cread(I2C_PORT, MPU9250_ADDRESS,0x3B, 14, Buf);
     // Create 16 bits values from 8 bits data
     // Accelerometer
-    imusensor[0][0]=-(Buf[0]<<8 | Buf[1]);
+    // imusensor[0][0]=-(Buf[0]<<8 | Buf[1]);
+    // imusensor[0][1]=-(Buf[2]<<8 | Buf[3]);
+    // imusensor[0][2]=Buf[4]<<8 | Buf[5];
+
+    // // Gyroscope
+    // imusensor[1][0]=-(Buf[8]<<8 | Buf[9]);
+    // imusensor[1][1]=-(Buf[10]<<8 | Buf[11]);
+    // imusensor[1][2]=Buf[12]<<8 | Buf[13];
+
+    // // Magnetometer
+    // uint8_t Mag[7];  
+    // I2Cread(I2C_PORT, MAG_ADDRESS,0x03, 7, Mag);
+    // // Create 16 bits values from 8 bits data
+    // // Magnetometer
+    // imusensor[2][0]=-(Mag[3]<<8 | Mag[2]);
+    // imusensor[2][1]=-(Mag[1]<<8 | Mag[0]);
+    // imusensor[2][2]=-(Mag[5]<<8 | Mag[4]);
+
+
+    // Accelerometer
+    imusensor[0][0]=(Buf[0]<<8 | Buf[1]);
     imusensor[0][1]=-(Buf[2]<<8 | Buf[3]);
     imusensor[0][2]=Buf[4]<<8 | Buf[5];
 
     // Gyroscope
     imusensor[1][0]=-(Buf[8]<<8 | Buf[9]);
-    imusensor[1][1]=-(Buf[10]<<8 | Buf[11]);
-    imusensor[1][2]=Buf[12]<<8 | Buf[13];
+    imusensor[1][1]=(Buf[10]<<8 | Buf[11]);
+    imusensor[1][2]=-Buf[12]<<8 | Buf[13];
 
     // Magnetometer
     uint8_t Mag[7];  
     I2Cread(I2C_PORT, MAG_ADDRESS,0x03, 7, Mag);
     // Create 16 bits values from 8 bits data
     // Magnetometer
-    imusensor[2][0]=-(Mag[3]<<8 | Mag[2]);
+    imusensor[2][0]=(Mag[3]<<8 | Mag[2]);
     imusensor[2][1]=-(Mag[1]<<8 | Mag[0]);
     imusensor[2][2]=-(Mag[5]<<8 | Mag[4]);
 
@@ -99,7 +119,7 @@ void IMU:: applyrange(int16_t imusensor[3][3], std::vector<double>& gyro, std::v
 
         // printf("%f\t", acc[i]);
         gyro[i] = double(imusensor[1][i])/ int16bit_range * 1000 /180*acos(-1);
-        mag[i]  = imusensor[2][i]/ int16bit_range * 4800/45.0222;
+        mag[i]  = double(imusensor[2][i])/ int16bit_range * 4800;
     }
 }
 
@@ -109,7 +129,7 @@ void IMU :: applycalibration(std::vector<double> &gyro, std::vector<double> &acc
     for(int i =0; i<n; i++){
         gyro[i] = gyro[i] - gyro_bias[i];
         acc[i]  = acc[i] - acc_bias[i];
-        mag[i]  = mag[i] - mag_bias[i];
+        mag[i]  = mag[i] - mag_mod*mag_bias[i];
     }
 
     acc = matrixVectorProduct(matrixInverse(acc_S), acc);

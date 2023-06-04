@@ -99,12 +99,6 @@ std::vector<std::vector<double>> matrixInverse(const std::vector<std::vector<dou
     std::vector<std::vector<double>> inverse(n, std::vector<double>(n, 0.0));
     std::vector<double> b(n, 0.0);
 
-    // printMatrix(A);
-    // printf("\n");
-    // printMatrix(L);
-    // printf("\n");
-    // printMatrix(U);
-    // printf("\n");
     for (int i = 0; i < n; i++) {
         b[i] = 1.0;
         std::vector<double> y = forwardSubstitution(L, b);

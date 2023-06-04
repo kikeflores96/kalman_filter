@@ -35,24 +35,20 @@
 //###################################################
 class IMU {
   private:
-    // Sensor_axis = Sensor_axis_SF*(sensor_axis_raw - sensor_axis_bias)
-    // Mag_x = Mag_x_SF*(Mag_x_raw - Mag_x_bias)
-    int magxbias = 0, magybias = 0, magzbias = 0;
-    int accxbias = 0, accybias = 0, acczbias = 0;
-    int gyroxbias = 94, gyroybias = 3, gyrozbias = -58;
-    int magxSF = 1, magySF = 1, magzSF = 1;
-    int accxSF = 1, accySF = 1, acczSF = 1;
-    int gyroxSF = 1, gyroySF = 1, gyrozSF = 1;
-    std::vector<std::vector<double>> mag_A_inv = {{1.2535, -0.0207, 0.0725},{-0.0207, 1.2612, -0.0207},{0.0725, -0.0207, 1.2737}};
-    std::vector<double> mag_bias = {-0.0724,-0.3814, 1.2595};
+    // Magnetometer calibration
+    double mag_mod = 46.5671;
+    std::vector<std::vector<double>> mag_A_inv = {{1.30476107,  0.0301496,  -0.04507716},{0.0301496, 1.25956394, 0.00623101},{-0.04507716,  0.00623101,  1.302116}};
+    std::vector<double> mag_bias = {0.29056272,-0.26517277, 1.29841245};
 
+    // Accelerometer calibration
     double kx = 0.9957, ky = 0.9898, kz = 0.9666;
     double ayz = 0.01423, azy = 0.05225, azx = 0.00074;
     std::vector<std::vector<double>> acc_T = {{1, -ayz, azy},{0, 1, -azx},{0, 0, 1}};
     std::vector<std::vector<double>> acc_S = {{kx, 0, 0},{0, ky, 0},{0, 0, kz}};
     std::vector<double> acc_bias = {-0.9497,-1.5212, -1.5564};
-
-    std::vector<double> gyro_bias = {0.0504, 0.0017, -0.0309};
+    
+    // Gyroscope calibration
+    std::vector<double> gyro_bias = {0.0514, -0.0007, 0.24};
 
   public:
     void initialize();

@@ -48,14 +48,6 @@ hardware/i2c.h
 vector
 -
 
-/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/matrix_operations/matrix_operations.cpp
-vector
--
-iostream
--
-cmath
--
-
 /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/matrix_operations/matrix_operations.h
 vector
 -
