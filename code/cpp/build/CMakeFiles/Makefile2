@@ -80,23 +80,41 @@ clean: lib/clean
 # Recursive "all" directory target.
 lib/all: lib/IMU/all
 lib/all: lib/matrix_operations/all
-lib/all: lib/attitude/all
+lib/all: lib/EKF/all
 
 .PHONY : lib/all
 
 # Recursive "preinstall" directory target.
 lib/preinstall: lib/IMU/preinstall
 lib/preinstall: lib/matrix_operations/preinstall
-lib/preinstall: lib/attitude/preinstall
+lib/preinstall: lib/EKF/preinstall
 
 .PHONY : lib/preinstall
 
 # Recursive "clean" directory target.
 lib/clean: lib/IMU/clean
 lib/clean: lib/matrix_operations/clean
-lib/clean: lib/attitude/clean
+lib/clean: lib/EKF/clean
 
 .PHONY : lib/clean
+
+#=============================================================================
+# Directory level rules for directory lib/EKF
+
+# Recursive "all" directory target.
+lib/EKF/all:
+
+.PHONY : lib/EKF/all
+
+# Recursive "preinstall" directory target.
+lib/EKF/preinstall:
+
+.PHONY : lib/EKF/preinstall
+
+# Recursive "clean" directory target.
+lib/EKF/clean:
+
+.PHONY : lib/EKF/clean
 
 #=============================================================================
 # Directory level rules for directory lib/IMU
@@ -115,24 +133,6 @@ lib/IMU/preinstall:
 lib/IMU/clean:
 
 .PHONY : lib/IMU/clean
-
-#=============================================================================
-# Directory level rules for directory lib/attitude
-
-# Recursive "all" directory target.
-lib/attitude/all:
-
-.PHONY : lib/attitude/all
-
-# Recursive "preinstall" directory target.
-lib/attitude/preinstall:
-
-.PHONY : lib/attitude/preinstall
-
-# Recursive "clean" directory target.
-lib/attitude/clean:
-
-.PHONY : lib/attitude/clean
 
 #=============================================================================
 # Directory level rules for directory lib/matrix_operations

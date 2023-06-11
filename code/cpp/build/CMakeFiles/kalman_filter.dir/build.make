@@ -606,18 +606,18 @@ CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.s"
 	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/IMU/IMU.cpp -o CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.s
 
-CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj: CMakeFiles/kalman_filter.dir/flags.make
-CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj: ../lib/attitude/attitude.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj"
-	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj -c /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/attitude/attitude.cpp
+CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj: CMakeFiles/kalman_filter.dir/flags.make
+CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj: ../lib/EKF/EKF.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj"
+	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj -c /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.cpp
 
-CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.i"
-	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/attitude/attitude.cpp > CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.i
+CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.i"
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.cpp > CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.i
 
-CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.s"
-	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/attitude/attitude.cpp -o CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.s
+CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.s"
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.cpp -o CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.s
 
 CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj: CMakeFiles/kalman_filter.dir/flags.make
 CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj: ../lib/matrix_operations/matrix_operations.cpp
@@ -683,7 +683,7 @@ kalman_filter_OBJECTS = \
 "CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj" \
 "CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" \
 "CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj" \
-"CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj" \
+"CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj" \
 "CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj"
 
 # External object files for target kalman_filter
@@ -738,7 +738,7 @@ kalman_filter.elf: CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pic
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
-kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
+kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/build.make
 kalman_filter.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S

@@ -1312,6 +1312,33 @@ kalman_filter.cpp.s:
 	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/kalman_filter.cpp.s
 .PHONY : kalman_filter.cpp.s
 
+lib/EKF/EKF.obj: lib/EKF/EKF.cpp.obj
+
+.PHONY : lib/EKF/EKF.obj
+
+# target to build an object file
+lib/EKF/EKF.cpp.obj:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj
+.PHONY : lib/EKF/EKF.cpp.obj
+
+lib/EKF/EKF.i: lib/EKF/EKF.cpp.i
+
+.PHONY : lib/EKF/EKF.i
+
+# target to preprocess a source file
+lib/EKF/EKF.cpp.i:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.i
+.PHONY : lib/EKF/EKF.cpp.i
+
+lib/EKF/EKF.s: lib/EKF/EKF.cpp.s
+
+.PHONY : lib/EKF/EKF.s
+
+# target to generate assembly for a file
+lib/EKF/EKF.cpp.s:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.s
+.PHONY : lib/EKF/EKF.cpp.s
+
 lib/IMU/IMU.obj: lib/IMU/IMU.cpp.obj
 
 .PHONY : lib/IMU/IMU.obj
@@ -1338,33 +1365,6 @@ lib/IMU/IMU.s: lib/IMU/IMU.cpp.s
 lib/IMU/IMU.cpp.s:
 	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.s
 .PHONY : lib/IMU/IMU.cpp.s
-
-lib/attitude/attitude.obj: lib/attitude/attitude.cpp.obj
-
-.PHONY : lib/attitude/attitude.obj
-
-# target to build an object file
-lib/attitude/attitude.cpp.obj:
-	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj
-.PHONY : lib/attitude/attitude.cpp.obj
-
-lib/attitude/attitude.i: lib/attitude/attitude.cpp.i
-
-.PHONY : lib/attitude/attitude.i
-
-# target to preprocess a source file
-lib/attitude/attitude.cpp.i:
-	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.i
-.PHONY : lib/attitude/attitude.cpp.i
-
-lib/attitude/attitude.s: lib/attitude/attitude.cpp.s
-
-.PHONY : lib/attitude/attitude.s
-
-# target to generate assembly for a file
-lib/attitude/attitude.cpp.s:
-	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.s
-.PHONY : lib/attitude/attitude.cpp.s
 
 lib/matrix_operations/matrix_operations.obj: lib/matrix_operations/matrix_operations.cpp.obj
 
@@ -1531,12 +1531,12 @@ help:
 	@echo "... kalman_filter.obj"
 	@echo "... kalman_filter.i"
 	@echo "... kalman_filter.s"
+	@echo "... lib/EKF/EKF.obj"
+	@echo "... lib/EKF/EKF.i"
+	@echo "... lib/EKF/EKF.s"
 	@echo "... lib/IMU/IMU.obj"
 	@echo "... lib/IMU/IMU.i"
 	@echo "... lib/IMU/IMU.s"
-	@echo "... lib/attitude/attitude.obj"
-	@echo "... lib/attitude/attitude.i"
-	@echo "... lib/attitude/attitude.s"
 	@echo "... lib/matrix_operations/matrix_operations.obj"
 	@echo "... lib/matrix_operations/matrix_operations.i"
 	@echo "... lib/matrix_operations/matrix_operations.s"

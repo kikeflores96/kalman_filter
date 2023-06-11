@@ -36,7 +36,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/IMU/cmake_install.cmake")
   include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/matrix_operations/cmake_install.cmake")
-  include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/attitude/cmake_install.cmake")
+  include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/EKF/cmake_install.cmake")
 
 endif()
 

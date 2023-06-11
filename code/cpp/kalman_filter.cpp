@@ -2,16 +2,20 @@
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include "hardware/i2c.h"
-#include "lib/IMU/IMU.h"
 #include <vector>
 #include <iostream>
 #include "lib/matrix_operations/matrix_operations.h"
+#include "lib/IMU/IMU.h"
+#include "lib/EKF/EKF.h"
 
 // Define uart port instance
 #define UART_PORT uart0
 
 // Define a IMU-type object called imu
 IMU imu;
+
+EKF ekf;
+Euler yawpitchroll;
 
 // Global variables 
 int16_t   imusensor[3][3];
@@ -21,12 +25,13 @@ double    int16bit_range = 32767.5;
 std::vector<double> gyro(3);
 std::vector<double> acc(3);
 std::vector<double> mag(3);
-std::vector<std::vector<double>> A(3,std::vector<double>(3,0));
+std::vector<double> cuat(4);
+
 
 
 // Main loop timer
 struct repeating_timer main_timer;  // Main loop timer
-int main_loop_period = -10;          // Main loop period in ms
+int main_loop_period = -50;          // Main loop period in ms
 uint64_t time0_ml = time_us_64();
 uint64_t time1_ml;
 uint64_t dt_ml;
@@ -88,6 +93,8 @@ bool main_loop(struct repeating_timer *t) {
   time1_ml  = time_us_64();         // Get global time in microseconds
   dt_ml     = time1_ml - time0_ml;  // Get deltaT
   time0_ml  = time1_ml;             // Reassign time0
+
+  double dt = dt_ml/1000000.;
   // printf("deltaT = %lld\t\n", dt_ml/1000);
 
 
@@ -95,18 +102,23 @@ bool main_loop(struct repeating_timer *t) {
   imu.applyrange(imusensor, gyro, mag, acc);
   imu.applycalibration(gyro, acc, mag);
 
+  ekf.predict(gyro, dt);
+  ekf.update(acc, mag);
+  
+
+
   int n = gyro.size();
 
-  for(int i=0; i<n; i++){
-        printf("Acc%c = %.3f\t", coordinates[i], acc[i]);
-  }
-  for(int i=0; i<n; i++){
-        printf("Gyro%c = %.3f\t", coordinates[i], gyro[i]);
-  }
-  for(int i=0; i<n; i++){
-        printf("Mag%c = %.3f\t", coordinates[i], mag[i]);
-  }
-  printf("\n");
+  // for(int i=0; i<n; i++){
+  //       printf("Acc%c = %.3f\t", coordinates[i], acc[i]);
+  // }
+  // for(int i=0; i<n; i++){
+  //       printf("Gyro%c = %.3f\t", coordinates[i], gyro[i]);
+  // }
+  // for(int i=0; i<n; i++){
+  //       printf("Mag%c = %.3f\t", coordinates[i], mag[i]);
+  // }
+  // printf("\n");
   // sendToPC(imusensor[1][0], imusensor[1][1], imusensor[1][2],
   //           imusensor[0][0], imusensor[0][1], imusensor[0][2],
   //           imusensor[2][0], imusensor[2][1], imusensor[2][2]);

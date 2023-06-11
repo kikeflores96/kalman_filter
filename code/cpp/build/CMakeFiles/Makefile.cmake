@@ -15,8 +15,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "elf2uf2/tmp/ELF2UF2Build-cfgcmd.txt.in"
   "pico-sdk/src/rp2_common/cyw43_driver/pioasm/tmp/PioasmBuild-cfgcmd.txt.in"
   "../lib/CMakeLists.txt"
+  "../lib/EKF/CMakeLists.txt"
   "../lib/IMU/CMakeLists.txt"
-  "../lib/attitude/CMakeLists.txt"
   "../lib/matrix_operations/CMakeLists.txt"
   "../pico_sdk_import.cmake"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/CMakeLists.txt"
@@ -114,9 +114,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/tools/CMakeLists.txt"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/tools/FindELF2UF2.cmake"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/tools/FindPioasm.cmake"
-  "/usr/lib/cmake/eigen3/Eigen3Config.cmake"
-  "/usr/lib/cmake/eigen3/Eigen3ConfigVersion.cmake"
-  "/usr/lib/cmake/eigen3/Eigen3Targets.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeASMInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
@@ -227,7 +224,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/IMU/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/matrix_operations/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "lib/attitude/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/EKF/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

@@ -1,6 +1,7 @@
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
+set(PICO_CXX_ENABLE_EXCEPTIONS 1)
 # Adds a library target called nrf24_driver for the NRF24L01 driver
 # STATIC libraries are archives of object files for use when linking other targets
 # INTERFACE libraries do not compile sources and don't produce a library artifact on disk

@@ -54,7 +54,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
   "PICO_BUILD=1"
   "PICO_CMAKE_BUILD_TYPE=\"Release\""
   "PICO_COPY_TO_RAM=0"
-  "PICO_CXX_ENABLE_EXCEPTIONS=0"
+  "PICO_CXX_ENABLE_EXCEPTIONS=1"
   "PICO_NO_FLASH=0"
   "PICO_NO_HARDWARE=0"
   "PICO_ON_DEVICE=1"
@@ -105,7 +105,6 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/pico_stdio_uart/include"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_spi/include"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
-  "/usr/include/eigen3"
   )
 set(CMAKE_DEPENDS_CHECK_C
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/common/pico_sync/critical_section.c" "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj"
@@ -180,7 +179,7 @@ set(CMAKE_TARGET_DEFINITIONS_C
   "PICO_BUILD=1"
   "PICO_CMAKE_BUILD_TYPE=\"Release\""
   "PICO_COPY_TO_RAM=0"
-  "PICO_CXX_ENABLE_EXCEPTIONS=0"
+  "PICO_CXX_ENABLE_EXCEPTIONS=1"
   "PICO_NO_FLASH=0"
   "PICO_NO_HARDWARE=0"
   "PICO_ON_DEVICE=1"
@@ -231,13 +230,12 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/pico_stdio_uart/include"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_spi/include"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
-  "/usr/include/eigen3"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp" "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
   "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/kalman_filter.cpp" "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles/kalman_filter.dir/kalman_filter.cpp.obj"
+  "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.cpp" "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj"
   "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/IMU/IMU.cpp" "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj"
-  "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/attitude/attitude.cpp" "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles/kalman_filter.dir/lib/attitude/attitude.cpp.obj"
   "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/matrix_operations/matrix_operations.cpp" "/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -276,7 +274,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "PICO_BUILD=1"
   "PICO_CMAKE_BUILD_TYPE=\"Release\""
   "PICO_COPY_TO_RAM=0"
-  "PICO_CXX_ENABLE_EXCEPTIONS=0"
+  "PICO_CXX_ENABLE_EXCEPTIONS=1"
   "PICO_NO_FLASH=0"
   "PICO_NO_HARDWARE=0"
   "PICO_ON_DEVICE=1"
@@ -327,7 +325,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/pico_stdio_uart/include"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_spi/include"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
-  "/usr/include/eigen3"
   )
 
 # Targets to which this target links.

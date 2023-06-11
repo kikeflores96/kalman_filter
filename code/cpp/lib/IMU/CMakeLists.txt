@@ -16,8 +16,8 @@ target_sources(imu
 # pico_stdlib, hardware_spi & hardware_gpio libraries
 target_link_libraries(imu 
     INTERFACE
-      pico_stdlib
-      hardware_i2c 
-      hardware_gpio
+    pico_stdlib
+    hardware_i2c 
+    hardware_gpio
 )
 

@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <stdexcept>
 
 void printMatrix(const std::vector<std::vector<double>>& matrix) {
     for (const auto& row : matrix) {
@@ -14,18 +15,25 @@ void printMatrix(const std::vector<std::vector<double>>& matrix) {
 
 
 std::vector<std::vector<double>> matrixMultiplication(const std::vector<std::vector<double>>& A, const std::vector<std::vector<double>>& B) {
-    int n = A.size();
-    std::vector<std::vector<double>> C(n, std::vector<double>(n, 0.0));
+    int m = A.size();
+    int n = A[0].size();
+    int p = B.size();
+    int q = B[0].size();
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            for (int k = 0; k < n; k++) {
-                C[i][j] += A[i][k] * B[k][j];
+    std::vector<std::vector<double>> result(m, std::vector<double>(q, 0.0));
+    if (n==p){
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < q; j++) {
+                for (int k = 0; k < n; k++) {
+                    result[i][j] += A[i][k] * B[k][j];
+                }
             }
         }
     }
-
-    return C;
+    else{
+        throw std::runtime_error("Incompatible number of columns and rows");
+    }
+    return result;
 }
 
 
@@ -117,14 +125,78 @@ std::vector<std::vector<double>> matrixInverse(const std::vector<std::vector<dou
 
 // Function to perform matrix-vector multiplication
 std::vector<double> matrixVectorProduct(const std::vector<std::vector<double>>& matrix, const std::vector<double>& vector) {
-    int n = matrix.size();
-    std::vector<double> result(n, 0.0);
+    
+    int m = matrix.size();    // Matrix rows
+    int n = matrix[0].size(); // Matrix columns
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            result[i] += matrix[i][j] * vector[j];
+    int o = vector.size();       // Vector size
+
+    std::vector<double> result(m, 0.0);
+    if(n == o){
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i] += matrix[i][j] * vector[j];
+            }
+        }
+    }
+    else{
+        throw std::runtime_error("Incompatible number of columns and rows");
+    }
+
+    return result;
+}
+
+
+
+
+std::vector<std::vector<double>> createDiagMatrix(int size, double diag) {
+    std::vector<std::vector<double>> diagonalMatrix(size, std::vector<double>(size, 0.0));
+
+    // Assign 1 to the diagonal elements
+    for (int i = 0; i < size; i++) {
+        diagonalMatrix[i][i] = diag;
+    }
+
+    return diagonalMatrix;
+}
+
+
+
+std::vector<std::vector<double>> transposeMatrix(const std::vector<std::vector<double>>& matrix) {
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+
+    // Create a new matrix with transposed dimensions
+    std::vector<std::vector<double>> transposed(cols, std::vector<double>(rows));
+
+    // Transpose the matrix
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            transposed[j][i] = matrix[i][j];
         }
     }
 
+    return transposed;
+}
+
+
+
+std::vector<double> concatenateVectors(const std::vector<double>& v1, const std::vector<double>& v2) {
+    
+    int l1 = v1.size();
+    int l2 = v2.size();
+    int l = l1 + l2;
+
+    std::vector<double> result(l, 0.0);
+    int k = 0;
+    for (int i=0; i<l1; i++){
+        result[k] = v1[i];
+        k++;
+    }
+    for (int i=0; i<l2; i++){
+        result[k] = v2[i];
+        k++;
+    }
+    
     return result;
 }
