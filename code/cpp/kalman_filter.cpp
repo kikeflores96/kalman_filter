@@ -22,10 +22,14 @@ int16_t   imusensor[3][3];
 char coordinates[3] = {'x', 'y', 'z'};
 double    int16bit_range = 32767.5;
 
-std::vector<double> gyro(3);
-std::vector<double> acc(3);
-std::vector<double> mag(3);
-std::vector<double> cuat(4);
+
+// IMU measurements
+std::vector<double> gyro(3);    // Gyroscope p,q,r in rad/s
+std::vector<double> acc(3);     // Acceleration gx, gy, gz, in m/s^2
+std::vector<double> mag(3);     // Magnetic field in mT
+
+Euler euler;
+
 
 
 
@@ -47,27 +51,57 @@ typedef union
 
 
 
-void sendToPC(int16_t data1, int16_t data2, int16_t data3,
-              int16_t data4, int16_t data5, int16_t data6,
-              int16_t data7, int16_t data8, int16_t data9)
+// void sendToPC(int16_t data1, int16_t data2, int16_t data3,
+//               int16_t data4, int16_t data5, int16_t data6,
+//               int16_t data7, int16_t data8, int16_t data9)
+// {
+//   uint8_t buf[18];
+//   int16_t data[9] = {data1, data2, data3, data4, data5, data6, data7, data8, data9};
+//   for (int i = 0; i < 9; i++)
+//   {
+//     INTUNION_t myint;
+//     myint.number = data[i];
+//     for (int j = 0; j < 2; j++)
+//     {
+//       buf[i * 2 + j] = myint.bytes[j];
+//     }
+//   }
+
+//   if (uart_is_writable(UART_PORT))
+//   {
+//     uart_write_blocking(UART_PORT, buf, 18);
+//   }
+// }
+
+
+void splitDoubleToBuffer(double value, uint8_t* buffer) {
+    uint64_t intValue = *reinterpret_cast<uint64_t*>(&value);
+    for (int i = 0; i < 8; ++i) {
+        buffer[i] = static_cast<uint8_t>(intValue >> (8 * i));
+    }
+}
+
+
+void sendToPC(std::vector<double> &data)
 {
-  uint8_t buf[18];
-  int16_t data[9] = {data1, data2, data3, data4, data5, data6, data7, data8, data9};
-  for (int i = 0; i < 9; i++)
-  {
-    INTUNION_t myint;
-    myint.number = data[i];
-    for (int j = 0; j < 2; j++)
+  int n=data.size();
+  uint8_t buf[n*8];
+
+  for (int i = 0; i < n; i++){
+    uint8_t element_buffer[8];
+    splitDoubleToBuffer(data[i], element_buffer); 
+    for (int j = 0; j < 8; j++)
     {
-      buf[i * 2 + j] = myint.bytes[j];
+      buf[i * 8 + j] = element_buffer[j];
     }
   }
-
+  // printf("1=%u\t\t2=%u\t\t3=%u\t\t4=%u\n", buf[0],buf[1],buf[2],buf[3]);
   if (uart_is_writable(UART_PORT))
   {
-    uart_write_blocking(UART_PORT, buf, 18);
+    uart_write_blocking(UART_PORT, buf, n*8);
   }
 }
+
 
 
 
@@ -94,7 +128,7 @@ bool main_loop(struct repeating_timer *t) {
   dt_ml     = time1_ml - time0_ml;  // Get deltaT
   time0_ml  = time1_ml;             // Reassign time0
 
-  double dt = dt_ml/1000000.;
+  double dt = main_loop_period/1000.;
   // printf("deltaT = %lld\t\n", dt_ml/1000);
 
 
@@ -104,8 +138,20 @@ bool main_loop(struct repeating_timer *t) {
 
   ekf.predict(gyro, dt);
   ekf.update(acc, mag);
-  
 
+  // printf("\nqhat[0] = %f\tqhat[1] = %f\tqhat[2] = %f\tqhat[3] = %f\t", ekf.q[0],ekf.q[1],ekf.q[2],ekf.q[3]);
+  
+  euler.getEulerangles(ekf.q);
+
+  std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
+
+  // for(int i=0;i<data.size();i++){
+  //   printf("data[%i]=%.3f\t", i, data[i]);
+  // }
+  // printf("\n");
+  sendToPC(data);
+
+  // printf("\nyaw = %.3f\tpitch = %.3f\troll = %.3f", euler.yaw_deg(),euler.pitch_deg(),euler.roll_deg());
 
   int n = gyro.size();
 

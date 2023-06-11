@@ -13,4 +13,5 @@ std::vector<double> matrixVectorProduct(const std::vector<std::vector<double>>& 
 std::vector<std::vector<double>> createDiagMatrix(int size, double diag);
 std::vector<std::vector<double>> transposeMatrix(const std::vector<std::vector<double>>& matrix);
 std::vector<double> concatenateVectors(const std::vector<double>& v1, const std::vector<double>& v2);
+bool hasInfOrNaN(const std::vector<std::vector<double>>& matrix);
 #endif // MATRIX_OPERATIONS_H

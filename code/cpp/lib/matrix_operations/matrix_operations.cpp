@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <stdexcept>
+#include <limits>
 
 void printMatrix(const std::vector<std::vector<double>>& matrix) {
     for (const auto& row : matrix) {
@@ -140,6 +141,7 @@ std::vector<double> matrixVectorProduct(const std::vector<std::vector<double>>& 
         }
     }
     else{
+        printf("Incompatible number of columns and rows");
         throw std::runtime_error("Incompatible number of columns and rows");
     }
 
@@ -199,4 +201,15 @@ std::vector<double> concatenateVectors(const std::vector<double>& v1, const std:
     }
     
     return result;
+}
+
+bool hasInfOrNaN(const std::vector<std::vector<double>>& matrix) {
+    for (const auto& row : matrix) {
+        for (const auto& element : row) {
+            if (std::isinf(element) || std::isnan(element)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
