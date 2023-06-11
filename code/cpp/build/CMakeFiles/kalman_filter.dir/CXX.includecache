@@ -26,6 +26,18 @@ lib/IMU/IMU.h
 lib/EKF/EKF.h
 /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.h
 
+/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.cpp
+EKF.h
+/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.h
+math.h
+-
+vector
+-
+cmath
+-
+../../lib/matrix_operations/matrix_operations.h
+/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/matrix_operations/matrix_operations.h
+
 /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.h
 stdio.h
 -

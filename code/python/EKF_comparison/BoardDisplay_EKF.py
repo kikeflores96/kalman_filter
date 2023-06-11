@@ -123,7 +123,7 @@ class ProjectionViewer:
 def initializeCube():
     block = wf.Wireframe()
 
-    block_nodes = [(x, y, z) for x in (-1.5, 1.5) for y in (-1, 1) for z in (-0.1, 0.1)]
+    block_nodes = [(x, y, z) for x in (-0.75, 0.75) for y in (-2, 2) for z in (-0.1, 0.1)]
     node_colors = [(255, 255, 255)] * len(block_nodes)
     block.addNodes(block_nodes, node_colors)
     block.outputNodes()

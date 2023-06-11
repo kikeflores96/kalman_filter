@@ -49,7 +49,7 @@ class EKF{
 
       std::vector<double> yhat_bar = {0.0, 0.0, 0.0};
       std::vector<double> accel_ref = {0.0, 0.0, 1.0};
-      std::vector<double> mag_ref   = {0.0, 1.0, 0.0};
+      std::vector<double> mag_ref   = {-1.0, 0.0, 0.0};
 
 
   public:

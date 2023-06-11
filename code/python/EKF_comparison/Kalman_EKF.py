@@ -61,7 +61,7 @@ class System:
         self.xHatPrev = None
         self.pBar = None
         self.accelReference = np.array([0, 0, 1]).transpose()
-        self.magReference = np.array([0, 1, 0]).transpose()
+        self.magReference = np.array([-1, 0, 0]).transpose()
         self.mag_Ainv = np.array([[ 4.19557083e-03,  4.56214698e-05,  2.35322788e-04],
                                   [ 4.56214698e-05,  4.15498076e-03, -8.79800501e-05],
                                   [ 2.35322788e-04, -8.79800501e-05,  4.35812198e-03]])
