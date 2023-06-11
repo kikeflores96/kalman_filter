@@ -60,8 +60,8 @@ class System:
         self.xHatBar = None
         self.xHatPrev = None
         self.pBar = None
-        self.accelReference = np.array([0, 0, -1]).transpose()
-        self.magReference = np.array([0, -1, 0]).transpose()
+        self.accelReference = np.array([0, 0, 1]).transpose()
+        self.magReference = np.array([0, 1, 0]).transpose()
         self.mag_Ainv = np.array([[ 4.19557083e-03,  4.56214698e-05,  2.35322788e-04],
                                   [ 4.56214698e-05,  4.15498076e-03, -8.79800501e-05],
                                   [ 2.35322788e-04, -8.79800501e-05,  4.35812198e-03]])
@@ -77,7 +77,8 @@ class System:
         return accel / accelMag
 
     def getMagVector(self, m):
-        magGaussRaw = np.matmul(self.mag_Ainv, np.array(m).transpose() - self.mag_b)
+        # magGaussRaw = np.matmul(self.mag_Ainv, np.array(m).transpose() - self.mag_b)
+        magGaussRaw = m
         magGauss_N = np.matmul(getRotMat(self.xHat), magGaussRaw)
         magGauss_N[2] = 0
         magGauss_N = magGauss_N / (magGauss_N[0] ** 2 + magGauss_N[1] ** 2) ** 0.5

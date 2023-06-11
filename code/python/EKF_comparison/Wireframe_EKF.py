@@ -31,9 +31,12 @@ class Wireframe:
         for indexes, color in zip(faceList, colorList):
             self.faces.append(Face(indexes, color))
 
-    def quatRotate(self, w, a, m, dt):
+    def quatRotate(self, w, a, m, dt, q):
         self.sys.predict(w, dt)
         self.sys.update(a, m)
+        diff = self.sys.xHat[0:4] - q
+        print("dq0 = {:5.4f}\t dq1 = {:5.4f}\t dq2 = {:5.4f}\t dq3 = {:5.4f}".format(diff[0], diff[1], diff[2], diff[3]))
+        # print("q0 = {:5.4f}\t q0b = {:5.4f}".format(q[0], self.sys.xHat[0]))
 
     def rotatePoint(self, point):
         rotationMat = km.getRotMat(self.sys.xHat[0:4])

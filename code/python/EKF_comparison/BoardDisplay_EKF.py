@@ -19,7 +19,7 @@ class ProjectionViewer:
     def run(self, sensorInstance):
         """ Create a pygame screen until it is closed. """
         running = True
-        loopRate = 50
+        loopRate = 60
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -30,7 +30,7 @@ class ProjectionViewer:
             self.wireframe.quatRotate([data[0], data[1], data[2]],
                                       [data[3], data[4], data[5]],
                                       [data[6], data[7], data[8]],
-                                      1/loopRate)
+                                      1/loopRate, [data[9], data[10], data[11], data[12]])
             self.display()
             pygame.display.flip()
 

@@ -51,24 +51,6 @@ class SerialRead:
         for i in range(self.numParams):
             data = privateData[(i*self.dataNumBytes):(self.dataNumBytes + i*self.dataNumBytes)]
             value,  = struct.unpack(self.dataType, data)
-            if i == 0:
-                value = value
-            elif i == 1:
-                value = (value + 7)/int16bitrange*1000 / 180.0 * np.pi
-            elif i == 2:
-                value = (value + 66)/int16bitrange*1000 / 180.0 * np.pi
-            elif i == 3:
-                value = value
-            elif i == 4:
-                value = value
-            elif i == 5:
-                value = value
-            elif i == 6:
-                value = value 
-            elif i == 7:
-                value = value
-            elif i == 8:
-                value = value
             self.data[i] = value
         return self.data
 

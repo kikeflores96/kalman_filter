@@ -28,6 +28,8 @@ class serialPlot:
             self.dataType = 'h'     # 2 byte integer
         elif dataNumBytes == 4:
             self.dataType = 'f'     # 4 byte float
+        elif dataNumBytes == 8:
+            self.dataType = 'd'     # 8 byte double
         self.dataBlock = []
         self.data = []
         for i in range(numVariables):
@@ -63,7 +65,7 @@ class serialPlot:
         csvData = np.flip(np.array(self.data), 1).transpose()
         # np.savetxt('magnetometer_data.csv', csvData, delimiter=',', fmt='%f')
         print("Done")
-        return csvData
+        return csvData, self.rawData
 
     def close(self):
         self.serialConnection.close()
@@ -89,9 +91,9 @@ class serialPlot:
 # portName = '/dev/ttyACM1'
 portName = '/dev/ttyACM0'
 baudRate = 115200
-dataNumBytes = 2        # number of bytes of 1 data point
-numVariables = 9        # number of plots in 1 graph
+dataNumBytes = 8        # number of bytes of 1 data point
+numVariables = 13        # number of plots in 1 graph
 s = serialPlot(portName, baudRate, dataNumBytes, numVariables)   # initializes all required variables
 time.sleep(2)
-Data = s.getSerialData(30)
-np.savetxt('mag_cal_02.csv', Data, delimiter=',', fmt='%f')
+Data, rawData = s.getSerialData(5)
+np.savetxt('test_aqcuisition.csv', Data, delimiter=',', fmt='%f')
