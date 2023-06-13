@@ -39,13 +39,12 @@ class Wireframe:
         # print("q0 = {:5.4f}\t q0b = {:5.4f}".format(q[0], self.sys.xHat[0]))
 
     def rotatePoint(self, point):
-        rotationMat = km.getRotMat(self.sys.xHat[0:4])
+        # rotationMat = km.getRotMat(self.sys.xHat[0:4])
+        rotationMat = km.getRotMat(self.sys.qMicro)
         return np.matmul(rotationMat, point)
 
     def convertToComputerFrame(self, point):
-        # computerFrameChangeMatrix = np.array([[-1, 0, 0], [0, 0, -1], [0, -1, 0]])
         computerFrameChangeMatrix = np.array([[-1, 0, 0], [0, 0, -1], [0, -1, 0]])
-        # computerFrameChangeMatrix = np.array([[0, 1, 0], [0, 0, -1], [1, 0, 0]])
         return np.matmul(computerFrameChangeMatrix, point)
 
     def getAttitude(self):

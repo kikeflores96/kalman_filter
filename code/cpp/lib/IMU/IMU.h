@@ -37,15 +37,17 @@ class IMU {
   private:
     // Magnetometer calibration
     double mag_mod = 46.5671;
-    std::vector<std::vector<double>> mag_A_inv = {{1.30476107,  0.0301496,  -0.04507716},{0.0301496, 1.25956394, 0.00623101},{-0.04507716,  0.00623101,  1.302116}};
-    std::vector<double> mag_bias = {0.29056272,-0.26517277, 1.29841245};
+    std::vector<std::vector<double>> mag_A_inv = {{1.34816508,  0.01820963, -0.09210088},
+                                                  {0.01820963,  1.39352166 ,-0.0432281 },
+                                                  {-0.09210088, -0.0432281 ,  1.38374719}};
+    std::vector<double> mag_bias = {0.29902116,-0.3119834 , 1.30553365};
 
     // Accelerometer calibration
-    double kx = 0.9957, ky = 0.9898, kz = 0.9666;
-    double ayz = 0.01423, azy = 0.05225, azx = 0.00074;
+    double kx = 0.99612761, ky = 0.99079333, kz = 0.99889998;
+    double ayz = -0.01358966, azy = -0.05504814, azx = 0.00130575;
     std::vector<std::vector<double>> acc_T = {{1, -ayz, azy},{0, 1, -azx},{0, 0, 1}};
     std::vector<std::vector<double>> acc_S = {{kx, 0, 0},{0, ky, 0},{0, 0, kz}};
-    std::vector<double> acc_bias = {-0.9497,-1.5212, -1.5564};
+    std::vector<double> acc_bias = {0.86002407, -1.50361382, -1.8833217 };
     
     // Gyroscope calibration
     std::vector<double> gyro_bias = {0.0514, -0.0007, 0.24};

@@ -47,7 +47,7 @@ class System:
     def __init__(self):
         quaternion = np.array([1, 0, 0, 0])     # Initial estimate of the quaternion
         bias = np.array([0, 0, 0])              # Initial estimate of the gyro bias
-
+        self.qMicro = None
         self.xHat = np.concatenate((quaternion, bias)).transpose()
         self.yHatBar = np.zeros(3).transpose()
         self.p = np.identity(7) * 0.01

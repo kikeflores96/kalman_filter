@@ -37,9 +37,9 @@ Euler euler;
 // Main loop timer
 struct repeating_timer main_timer;  // Main loop timer
 int main_loop_period = -60;          // Main loop period in ms
-uint64_t time0_ml = time_us_64();
-uint64_t time1_ml;
-uint64_t dt_ml;
+uint64_t time0_us = time_us_64();
+uint64_t time1_us;
+uint64_t dt_us;
 
 // Communication with PC
 
@@ -142,12 +142,11 @@ void initialize()
 
 bool main_loop(struct repeating_timer *t) {
   // Compute main loop period
-  time1_ml  = time_us_64();         // Get global time in microseconds
-  dt_ml     = time1_ml - time0_ml;  // Get deltaT
-  time0_ml  = time1_ml;             // Reassign time0
+  time1_us  = time_us_64();         // Get global time in microseconds
+  dt_us     = time1_us - time0_us;  // Get deltaT
+  time0_us  = time1_us;             // Reassign time0
 
-  double dt = main_loop_period/1000.;
-  // printf("deltaT = %lld\t\n", dt_ml/1000);
+  double dt = -double(main_loop_period)/1000;
 
 
   imu.readsensor(imusensor);
@@ -171,7 +170,7 @@ bool main_loop(struct repeating_timer *t) {
 
   // printf("\nyaw = %.3f\tpitch = %.3f\troll = %.3f", euler.yaw_deg(),euler.pitch_deg(),euler.roll_deg());
 
-  int n = gyro.size();
+  // int n = gyro.size();
 
   // for(int i=0; i<n; i++){
   //       printf("Acc%c = %.3f\t", coordinates[i], acc[i]);
@@ -224,6 +223,14 @@ int main()
   add_repeating_timer_ms(main_loop_period, main_loop, NULL, &main_timer);
   // bool cancelled = cancel_repeating_timer(&main_timer);
 
+  // std::vector<double> w = {7.98753855e-04, -2.49584207e-03 , 1.81871684e-03};
+  // std::vector<double> a = {2.80537553e+00, 5.84316071e-02,  9.78944766e+00};
+  // std::vector<double> m = {-2.79830467e+01,  1.23371929e+01, -2.82501149e+01};
+
+  // double dt = -double(main_loop_period)/1000;
+
+  // ekf.predict(w, dt);
+  // ekf.update(a, m);
 
   while (true)
   {

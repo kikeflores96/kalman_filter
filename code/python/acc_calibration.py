@@ -29,14 +29,27 @@ g = 9.81
 v = np.zeros([4, 3])
 
 
+# for i in range(v.shape[0]):
+#     data = np.genfromtxt('acc_cal_{:1.0f}.csv'.format(i+1), dtype = float, delimiter=',').T
+#     data_acc = np.mean(data[3:6], axis = 1)/int16bit_range*4*g
+#     v[i] = data_acc
+
+   
+
+# G = np.array([[0, 0, g], [g, 0, 0],[0, -g, 0],[0, g, 0]])
+
+
+
 for i in range(v.shape[0]):
-    data = np.genfromtxt('acc_cal_{:1.0f}.csv'.format(i+1), dtype = float, delimiter=',').T
-    data_acc = np.mean(data[3:6], axis = 1)/int16bit_range*4*g
+    data = np.genfromtxt('acc_cal_{:1.0f}_b.csv'.format(i+1), dtype = float, delimiter=',').T
+    data_acc = np.mean(data[3:6], axis = 1)
     v[i] = data_acc
 
    
 
-G = np.array([[0, 0, g], [g, 0, 0],[0, -g, 0],[0, g, 0]])
+G = np.array([[0, 0, g], [-g, 0, 0],[0, -g, 0],[0, g, 0]])
+
+
 
 m1 = np.array([[1,  G[0, 2]], 
                [1 , G[1, 2]]])
@@ -102,18 +115,19 @@ plt.close('all')
 
 n=3
 
+
 f, ax = plt.subplots(n, 2, constrained_layout = True, figsize = (14, 8.5))
 ax[0,0].set_title('$\mathrm{No calibration}$')
 ax[0,1].set_title('$\mathrm{Calibrated}$')
 for i in range(n):
-    if i==2.:
-        data = np.genfromtxt('acc_cal_{:1.0f}.csv'.format(i+2), dtype = float, delimiter=',').T
+    if i==2:
+        data = np.genfromtxt('acc_cal_{:1.0f}_b.csv'.format(i+2), dtype = float, delimiter=',').T
     else:
-        data = np.genfromtxt('acc_cal_{:1.0f}.csv'.format(i+1), dtype = float, delimiter=',').T
+        data = np.genfromtxt('acc_cal_{:1.0f}_b.csv'.format(i+1), dtype = float, delimiter=',').T
     
 
     # data = np.genfromtxt('acc_cal_1.csv', dtype = float, delimiter=',').T
-    data_acc = data[3:6]/int16bit_range*4*g
+    data_acc = data[3:6]
     
     time = 50e-3*np.arange(data_acc.shape[1])
     

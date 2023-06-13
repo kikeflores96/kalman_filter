@@ -74,7 +74,7 @@ def fitEllipsoid(magX, magY, magZ):
 
 def main():
     # data = np.genfromtxt('magnetometer_data.csv', dtype = float, delimiter=',')
-    data = np.genfromtxt('mag_cal_02.csv', dtype = float, delimiter=',')
+    data = np.genfromtxt('mag_cal_03.csv', dtype = float, delimiter=',')
 
     # magX = data[:, 6] * 0.00080
     # magY = data[:, 7] * 0.00080
@@ -85,6 +85,11 @@ def main():
     magX = data[:, 6]/int16bit_range*4800 
     magY = data[:, 7]/int16bit_range*4800
     magZ = data[:, 8]/int16bit_range*4800
+    
+    magX = data[:, 6] 
+    magY = data[:, 7]
+    magZ = data[:, 8]
+
     
     mag_x0 = 23.87
     mag_y0 = 0.06375

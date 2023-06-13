@@ -44,7 +44,6 @@ std::vector <double> normalize_vector(const std::vector<double> &v) {
        v_hat[i]=v[i]/mod;
     }
     return v_hat;
-    
 }
 
 std::vector<std::vector<double>> getRotMatrix(const std::vector<double>& q) {
@@ -129,8 +128,6 @@ std::vector<double> EKF:: predictAccelMag(){
 
     C.resize(6, std::vector<double>(7, 0));
 
-
-
     for (int i=0; i<3; i++){
         for(int j=0; j<4; j++){
             C[i][j] = hPrime_a[i][j];
@@ -146,25 +143,25 @@ std::vector<double> EKF:: predictAccelMag(){
 
 void EKF::getA(const double dt){
 
-    A = {{1, 0, 0, 0, -dt/2*(-q[1]), -dt/2*(-q[2]), -dt/2*(-q[3])},
-         {0, 1, 0, 0,  -dt/2*q[0], -dt/2*(-q[3]),  -dt/2*q[2]},
-         {0, 0, 1, 0,  -dt/2*q[3],  -dt/2*q[0], -dt/2*(-q[1])},
-         {0, 0, 0, 1, -dt/2*(-q[2]),  -dt/2*q[1],  -dt/2*q[0]},
-         {0, 0, 0, 0,           1,           0,           0},
-         {0, 0, 0, 0,           0,           1,           0},
-         {0, 0, 0, 0,           0,           0,           1}};
+    A = {{1., 0., 0., 0., -dt/2.*(-q[1]), -dt/2.*(-q[2]), -dt/2.*(-q[3])},
+         {0., 1., 0., 0.,  -dt/2.*q[0], -dt/2.*(-q[3]),  -dt/2.*q[2]},
+         {0., 0., 1., 0.,  -dt/2.*q[3],  -dt/2.*q[0], -dt/2.*(-q[1])},
+         {0., 0., 0., 1., -dt/2.*(-q[2]),  -dt/2.*q[1],  -dt/2.*q[0]},
+         {0., 0., 0., 0.,           1.,           0.,           0.},
+         {0., 0., 0., 0.,           0.,           1.,           0.},
+         {0., 0., 0., 0.,           0.,           0.,           1.}};
     
 }
 
 void EKF::getB(const double dt){
 
-    B = {{dt/2*(-q[1]), dt/2*(-q[2]), dt/2*(-q[3])},
-         { dt/2*q[0], dt/2*(-q[3]),  dt/2*q[2]},
-         { dt/2*q[3],  dt/2*q[0], dt/2*(-q[1])},
-         {dt/2*(-q[2]),  dt/2*q[1],  dt/2*q[0]},
-         {          0,         0,          0},
-         {          0,         0,          0},
-         {          0,         0,          0}};
+    B = {{dt/2.*(-q[1]), dt/2.*(-q[2]), dt/2.*(-q[3])},
+         { dt/2.*q[0], dt/2.*(-q[3]),  dt/2.*q[2]},
+         { dt/2.*q[3],  dt/2.*q[0], dt/2.*(-q[1])},
+         {dt/2.*(-q[2]),  dt/2.*q[1],  dt/2.*q[0]},
+         {          0.,         0.,          0.},
+         {          0.,         0.,          0.},
+         {          0.,         0.,          0.}};
     
 }
 
@@ -175,6 +172,7 @@ void EKF::predict(std::vector<double> &gyro, const double dt){
     for (int i=0; i<q.size(); i++){
         q[i] = xhat[i];
     }
+
     // q = (xhat.begin(), xhat.begin() + 4);
     // std::vector<double> q(xhat.begin(), xhat.begin() + 4);
     // printf("qhat[0] = %f\tqhat[1] = %f\tqhat[2] = %f\tqhat[3] = %f\t", q[0],q[1],q[2],q[3]);
@@ -182,8 +180,12 @@ void EKF::predict(std::vector<double> &gyro, const double dt){
 
     // Get A matrix
     getA(dt);
+
+    
     // Get B matrix
     getB(dt);
+
+    
 
     // printMatrix(A);
     // printf("\n");
@@ -196,18 +198,32 @@ void EKF::predict(std::vector<double> &gyro, const double dt){
     term2 = matrixVectorProduct(B, gyro);
 
     for(int i = 0; i<xhat.size(); i++){
-        xhat_bar[i] = term1[i] + term2[i]; 
+        xhat_bar[i] = term1[i] + term2[i];
     }
 
-    std::vector<double> q_bar(xhat_bar.begin(), xhat_bar.begin() + 4);
+    
+
+    std::vector<double> q_bar(4, 0.0);
+
+    for (int i=0; i<4; i++){
+        q_bar[i] = xhat_bar[i];
+    }
+
     q_bar = normalize_vector(q_bar);
 
     for(int i = 0; i<4; i++){
-        xhat_bar[i] = q_bar[i]; 
+        xhat_bar[i] = q_bar[i];
+        
     }
+
+    xhat_prev = xhat;
 
 
     yhat_bar = predictAccelMag();
+
+    // for(int i=0; i<yhat_bar.size(); i++){
+    //     printf("\n%.12e\t", yhat_bar[i]);
+    // }
 
 
     std::vector<std::vector<double>> term3(7,std::vector<double>(7, 0.0));
@@ -222,7 +238,7 @@ void EKF::predict(std::vector<double> &gyro, const double dt){
         }
 
     }
-    
+   
 
 }
 
@@ -245,6 +261,7 @@ void EKF::update(std::vector<double> &acc, std::vector<double> &mag){
         K = k;
     }
 
+
     
     std::vector<double> acc_norm = normalize_vector(acc);
 
@@ -257,6 +274,9 @@ void EKF::update(std::vector<double> &acc, std::vector<double> &mag){
     std::vector<double> mag_B = matrixVectorProduct(transposeMatrix(getRotMatrix(xhat)), mag_NED);
 
     std::vector<double> measurement = concatenateVectors(acc_norm, mag_B);
+
+
+ 
 
     std::vector<double> tmp2(6,0.0);
 
@@ -288,6 +308,7 @@ void EKF::update(std::vector<double> &acc, std::vector<double> &mag){
 
 
 
+
     for (int i=0; i<q.size(); i++){
         q[i] = xhat[i];
     }
@@ -296,6 +317,10 @@ void EKF::update(std::vector<double> &acc, std::vector<double> &mag){
     for(int i = 0; i<4; i++){
         xhat[i] = q[i]; 
     }
+
+    // for(int i=0; i<xhat.size(); i++){
+    //     printf("\n%.12e\t", xhat[i]);
+    // }
 
     std::vector<std::vector<double>> tmp4 = matrixMultiplication(K,C);
     std::vector<std::vector<double>> tmp5(7, std::vector<double>(7, 0.0));
@@ -309,5 +334,6 @@ void EKF::update(std::vector<double> &acc, std::vector<double> &mag){
     }
 
     P = matrixMultiplication(tmp5, P_bar);
+    // printMatrix(P);
     
 }
