@@ -619,9 +619,22 @@ CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.s"
 	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/EKF/EKF.cpp -o CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.s
 
+CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.obj: CMakeFiles/kalman_filter.dir/flags.make
+CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.obj: ../lib/TCF/TCF.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.obj"
+	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.obj -c /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/TCF/TCF.cpp
+
+CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.i"
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/TCF/TCF.cpp > CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.i
+
+CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.s"
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/TCF/TCF.cpp -o CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.s
+
 CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj: CMakeFiles/kalman_filter.dir/flags.make
 CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj: ../lib/matrix_operations/matrix_operations.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj"
 	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj -c /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/lib/matrix_operations/matrix_operations.cpp
 
 CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.i: cmake_force
@@ -684,6 +697,7 @@ kalman_filter_OBJECTS = \
 "CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" \
 "CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj" \
 "CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj" \
+"CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.obj" \
 "CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj"
 
 # External object files for target kalman_filter
@@ -739,11 +753,12 @@ kalman_filter.elf: CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pic
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/home/kike/Documents/tfm_uned/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/EKF/EKF.cpp.obj
+kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/lib/matrix_operations/matrix_operations.cpp.obj
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/build.make
 kalman_filter.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 kalman_filter.elf: CMakeFiles/kalman_filter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Linking CXX executable kalman_filter.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Linking CXX executable kalman_filter.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kalman_filter.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/arm-none-eabi-objcopy -Oihex /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/kalman_filter.elf kalman_filter.hex
 	/usr/bin/arm-none-eabi-objcopy -Obinary /home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/kalman_filter.elf kalman_filter.bin

@@ -37,6 +37,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/IMU/cmake_install.cmake")
   include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/matrix_operations/cmake_install.cmake")
   include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/EKF/cmake_install.cmake")
+  include("/home/kike/Documents/tfm_uned/kalman_filter/code/cpp/build/lib/TCF/cmake_install.cmake")
 
 endif()
 

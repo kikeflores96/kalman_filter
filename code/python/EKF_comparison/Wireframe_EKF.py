@@ -34,8 +34,8 @@ class Wireframe:
     def quatRotate(self, w, a, m, dt, q):
         self.sys.predict(w, dt)
         self.sys.update(a, m)
-        diff = (self.sys.xHat[0:4] - q)/q*100
-        print("dq0 = {:5.4f}\t dq1 = {:5.4f}\t dq2 = {:5.4f}\t dq3 = {:5.4f}".format(diff[0], diff[1], diff[2], diff[3]))
+        # diff = (self.sys.xHat[0:4] - q)/q*100
+        # print("dq0 = {:5.4f}\t dq1 = {:5.4f}\t dq2 = {:5.4f}\t dq3 = {:5.4f}".format(diff[0], diff[1], diff[2], diff[3]))
         # print("q0 = {:5.4f}\t q0b = {:5.4f}".format(q[0], self.sys.xHat[0]))
 
     def rotatePoint(self, point):

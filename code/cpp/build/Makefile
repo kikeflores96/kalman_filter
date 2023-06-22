@@ -1366,6 +1366,33 @@ lib/IMU/IMU.cpp.s:
 	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/IMU/IMU.cpp.s
 .PHONY : lib/IMU/IMU.cpp.s
 
+lib/TCF/TCF.obj: lib/TCF/TCF.cpp.obj
+
+.PHONY : lib/TCF/TCF.obj
+
+# target to build an object file
+lib/TCF/TCF.cpp.obj:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.obj
+.PHONY : lib/TCF/TCF.cpp.obj
+
+lib/TCF/TCF.i: lib/TCF/TCF.cpp.i
+
+.PHONY : lib/TCF/TCF.i
+
+# target to preprocess a source file
+lib/TCF/TCF.cpp.i:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.i
+.PHONY : lib/TCF/TCF.cpp.i
+
+lib/TCF/TCF.s: lib/TCF/TCF.cpp.s
+
+.PHONY : lib/TCF/TCF.s
+
+# target to generate assembly for a file
+lib/TCF/TCF.cpp.s:
+	$(MAKE) -f CMakeFiles/kalman_filter.dir/build.make CMakeFiles/kalman_filter.dir/lib/TCF/TCF.cpp.s
+.PHONY : lib/TCF/TCF.cpp.s
+
 lib/matrix_operations/matrix_operations.obj: lib/matrix_operations/matrix_operations.cpp.obj
 
 .PHONY : lib/matrix_operations/matrix_operations.obj
@@ -1537,6 +1564,9 @@ help:
 	@echo "... lib/IMU/IMU.obj"
 	@echo "... lib/IMU/IMU.i"
 	@echo "... lib/IMU/IMU.s"
+	@echo "... lib/TCF/TCF.obj"
+	@echo "... lib/TCF/TCF.i"
+	@echo "... lib/TCF/TCF.s"
 	@echo "... lib/matrix_operations/matrix_operations.obj"
 	@echo "... lib/matrix_operations/matrix_operations.i"
 	@echo "... lib/matrix_operations/matrix_operations.s"

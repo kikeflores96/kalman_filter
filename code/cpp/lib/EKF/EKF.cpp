@@ -26,7 +26,7 @@ double Euler::roll_deg() const {
 
 
 double vector_module(const std::vector<double> &v) {
-    double sum;
+    double sum=0.0;
     int n =  v.size();
 
     for (int i=0; i<n; i++){
@@ -63,6 +63,29 @@ std::vector<std::vector<double>> getRotMatrix(const std::vector<double>& q) {
 
 void Euler:: getEulerangles(const std::vector<double> &q){
     std::vector<std::vector<double>> M = getRotMatrix(q);
+    double disc = -M[2][0];
+
+    if (disc > 0.99999){
+        yaw = 0;
+        pitch = acos(-1.) / 2;
+        roll = atan2(M[0][1], M[0][2]);
+    }
+ 
+    else if (disc < -0.99999){
+        yaw = 0;
+        pitch = -acos(-1.) / 2;
+        roll = atan2(M[0][1], M[0][2]);
+    }
+    else{
+        yaw = atan2(M[1][0], M[0][0]);
+        pitch = asin(-M[2][0]);
+        roll = atan2(M[2][1], M[2][2]);
+    }
+
+}
+
+void Euler::Rot2Euler(const std::vector<std::vector<double>> &R){
+    std::vector<std::vector<double>> M = R;
     double disc = -M[2][0];
 
     if (disc > 0.99999){
@@ -166,7 +189,7 @@ void EKF::getB(const double dt){
 }
 
 
-void EKF::predict(std::vector<double> &gyro, const double dt){
+void EKF::predict(const std::vector<double> &gyro, const double dt){
     
     // Extract attitude quaternion from state vector
     for (int i=0; i<q.size(); i++){
@@ -243,7 +266,7 @@ void EKF::predict(std::vector<double> &gyro, const double dt){
 }
 
 
-void EKF::update(std::vector<double> &acc, std::vector<double> &mag){
+void EKF::update(const std::vector<double> &acc,const  std::vector<double> &mag){
     
     std::vector<std::vector<double>> tmp0 = matrixMultiplication(matrixMultiplication(C, P_bar), transposeMatrix(C));
     

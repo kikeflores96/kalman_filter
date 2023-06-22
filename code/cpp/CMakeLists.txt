@@ -38,6 +38,7 @@ target_link_libraries(kalman_filter
         hardware_i2c
         imu
         EKF
+        TCF
         matrix_operations
         )
 #target_link_libraries(kalman_filter  imu)

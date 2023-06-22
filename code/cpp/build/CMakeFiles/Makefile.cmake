@@ -17,6 +17,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../lib/CMakeLists.txt"
   "../lib/EKF/CMakeLists.txt"
   "../lib/IMU/CMakeLists.txt"
+  "../lib/TCF/CMakeLists.txt"
   "../lib/matrix_operations/CMakeLists.txt"
   "../pico_sdk_import.cmake"
   "/home/kike/Documents/tfm_uned/pico/pico-sdk/CMakeLists.txt"
@@ -225,6 +226,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "lib/IMU/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/matrix_operations/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/EKF/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/TCF/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

@@ -7,7 +7,7 @@
 #include "lib/matrix_operations/matrix_operations.h"
 #include "lib/IMU/IMU.h"
 #include "lib/EKF/EKF.h"
-
+#include "lib/TCF/TCF.h"
 
 // Define uart port instance
 #define UART_PORT uart0
@@ -15,6 +15,7 @@
 // Define a IMU-type object called imu
 IMU imu;
 
+TCF tcf;
 EKF ekf;
 Euler yawpitchroll;
 
@@ -153,14 +154,20 @@ bool main_loop(struct repeating_timer *t) {
   imu.applyrange(imusensor, gyro, mag, acc);
   imu.applycalibration(gyro, acc, mag);
 
-  ekf.predict(gyro, dt);
-  ekf.update(acc, mag);
+  // printf("\nw1[0] = %f\tw1[1] = %f\tw1[2] = %f", mag[0],mag[1],mag[2]);
+
+  // ekf.predict(gyro, dt);
+  // ekf.update(acc, mag);
+  tcf.TRIAD(acc, mag);
+  tcf.integrate(gyro, dt);
+  tcf.combine();
 
   // printf("\nqhat[0] = %f\tqhat[1] = %f\tqhat[2] = %f\tqhat[3] = %f\t", ekf.q[0],ekf.q[1],ekf.q[2],ekf.q[3]);
   
-  euler.getEulerangles(ekf.q);
+  // euler.getEulerangles(ekf.q);
+  // euler.getEulerangles(tcf.q);
 
-  std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
+  std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), tcf.qHat);
 
   // for(int i=0;i<data.size();i++){
   //   printf("data[%i]=%.3f\t", i, data[i]);
@@ -169,7 +176,7 @@ bool main_loop(struct repeating_timer *t) {
   sendToPC(data);
 
   // printf("\nyaw = %.3f\tpitch = %.3f\troll = %.3f", euler.yaw_deg(),euler.pitch_deg(),euler.roll_deg());
-
+  // printf("\nyaw = %.3f\tpitch = %.3f\troll = %.3f", tcf.triad_yawpitchroll.yaw_deg(),tcf.triad_yawpitchroll.pitch_deg(),tcf.triad_yawpitchroll.roll_deg());
   // int n = gyro.size();
 
   // for(int i=0; i<n; i++){
@@ -219,6 +226,18 @@ int main()
   initialize();
   // Initialize IMU
   imu.initialize();
+
+  tcf.initialize(imu);
+
+  // double dt = -double(main_loop_period)/1000;
+
+
+  // imu.readsensor(imusensor);
+  // imu.applyrange(imusensor, gyro, mag, acc);
+  // imu.applycalibration(gyro, acc, mag);
+
+  // tcf.integrate(gyro, dt);
+  
   // Create a repeating timer for the main loop
   add_repeating_timer_ms(main_loop_period, main_loop, NULL, &main_timer);
   // bool cancelled = cancel_repeating_timer(&main_timer);

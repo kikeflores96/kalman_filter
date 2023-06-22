@@ -103,9 +103,9 @@ void IMU :: readsensor(int16_t imusensor[3][3]){
     I2Cread(I2C_PORT, MAG_ADDRESS,0x03, 7, Mag);
     // Create 16 bits values from 8 bits data
     // Magnetometer
-    imusensor[2][0]=(Mag[3]<<8 | Mag[2]);
-    imusensor[2][1]=-(Mag[1]<<8 | Mag[0]);
-    imusensor[2][2]=-(Mag[5]<<8 | Mag[4]);
+    imusensor[2][0]=-(Mag[3]<<8 | Mag[2]);
+    imusensor[2][1]=(Mag[1]<<8 | Mag[0]);
+    imusensor[2][2]=(Mag[5]<<8 | Mag[4]);
 
   
 }
@@ -130,6 +130,7 @@ void IMU :: applycalibration(std::vector<double> &gyro, std::vector<double> &acc
         gyro[i] = gyro[i] - gyro_bias[i];
         acc[i]  = acc[i] - acc_bias[i];
         mag[i]  = mag[i] - mag_mod*mag_bias[i];
+
     }
 
     acc = matrixVectorProduct(matrixInverse(acc_S), acc);

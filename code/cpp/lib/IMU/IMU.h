@@ -40,7 +40,7 @@ class IMU {
     std::vector<std::vector<double>> mag_A_inv = {{1.34816508,  0.01820963, -0.09210088},
                                                   {0.01820963,  1.39352166 ,-0.0432281 },
                                                   {-0.09210088, -0.0432281 ,  1.38374719}};
-    std::vector<double> mag_bias = {0.29902116,-0.3119834 , 1.30553365};
+    std::vector<double> mag_bias = {-0.29902116,0.3119834 , -1.30553365};
 
     // Accelerometer calibration
     double kx = 0.99612761, ky = 0.99079333, kz = 0.99889998;

@@ -17,6 +17,7 @@ struct Euler{
     double roll_deg() const;
 
     void getEulerangles(const std::vector<double> &q);
+    void Rot2Euler(const std::vector<std::vector<double>> &R);
 };
 
 
@@ -50,8 +51,8 @@ class EKF{
     std::vector<double> predictAccelMag();
     void getA(const double dt);
     void getB(const double dt);
-    void predict(std::vector<double> &gyro, const double dt);
-    void update(std::vector<double> &acc, std::vector<double> &mag);
+    void predict(const std::vector<double> &gyro, const double dt);
+    void update(const std::vector<double> &acc, const std::vector<double> &mag);
 };
 
 #endif /* EKF_H_ */
