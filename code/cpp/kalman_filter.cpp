@@ -156,18 +156,18 @@ bool main_loop(struct repeating_timer *t) {
 
   // printf("\nw1[0] = %f\tw1[1] = %f\tw1[2] = %f", mag[0],mag[1],mag[2]);
 
-  // ekf.predict(gyro, dt);
-  // ekf.update(acc, mag);
-  tcf.TRIAD(acc, mag);
-  tcf.integrate(gyro, dt);
-  tcf.combine();
+  ekf.predict(gyro, dt);
+  ekf.update(acc, mag);
+  // tcf.TRIAD(acc, mag);
+  // tcf.integrate(gyro, dt);
+  // tcf.combine();
 
   // printf("\nqhat[0] = %f\tqhat[1] = %f\tqhat[2] = %f\tqhat[3] = %f\t", ekf.q[0],ekf.q[1],ekf.q[2],ekf.q[3]);
   
   // euler.getEulerangles(ekf.q);
   // euler.getEulerangles(tcf.q);
 
-  std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), tcf.qHat);
+  std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
 
   // for(int i=0;i<data.size();i++){
   //   printf("data[%i]=%.3f\t", i, data[i]);

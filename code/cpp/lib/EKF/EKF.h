@@ -29,7 +29,19 @@ class EKF{
       std::vector<std::vector<double>> P      = createDiagMatrix(7, 0.01);
       std::vector<std::vector<double>> P_bar  = createDiagMatrix(7, 0.01);
       std::vector<std::vector<double>> Q      = createDiagMatrix(7, 0.001);
+
+    //   std::vector<std::vector<double>> Q_hat      = {{1.6928999e-07, 0, 0},
+    //                                                  {0, 1.7532337e-07, 0},
+    //                                                  {0, 0, 1.9694976e-07}};
+
       std::vector<std::vector<double>> R      = createDiagMatrix(6, 0.1);
+
+    //   std::vector<std::vector<double>> R      = {{2.6039008e-05, 0, 0, 0, 0, 0},
+    //                                              {0 ,2.9455331e-05, 0, 0, 0, 0},
+    //                                              {0, 0, 1.8108870e-05, 0, 0, 0},
+    //                                              {0, 0, 0, 3.6906232e-05, 0, 0},
+    //                                              {0, 0, 0, 0, 4.1092182e-05, 0},
+    //                                              {0, 0, 0, 0, 0, 1.4462859e-05}};
 
       std::vector<std::vector<double>> K;
       std::vector<std::vector<double>> A;
@@ -41,7 +53,7 @@ class EKF{
 
       std::vector<double> yhat_bar = {0.0, 0.0, 0.0};
       std::vector<double> accel_ref = {0.0, 0.0, 1.0};
-      std::vector<double> mag_ref   = {-1.0, 0.0, 0.0};
+      std::vector<double> mag_ref   = {1.0, 0.0, 0.0};
 
 
   public:

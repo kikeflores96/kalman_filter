@@ -255,6 +255,13 @@ void EKF::predict(const std::vector<double> &gyro, const double dt){
 
     // printMatrix(term3);
 
+
+    // Q = matrixMultiplication(B, matrixMultiplication(Q_hat, transposeMatrix(B)));
+
+    // Q[4][4] = 1e-7;
+    // Q[5][5] = 1e-7;
+    // Q[6][6] = 1e-7;
+
     for (int i= 0; i<xhat.size(); i++){
         for (int j= 0; j<xhat.size(); j++){
             P_bar[i][j] = term3[i][j] + Q[i][j]; 
