@@ -30,7 +30,8 @@ std::vector<double> gyro(3);    // Gyroscope p,q,r in rad/s
 std::vector<double> acc(3);     // Acceleration gx, gy, gz, in m/s^2
 std::vector<double> mag(3);     // Magnetic field in mT
 
-Euler euler;
+Euler euler_ekf;
+Euler euler_tcf;
 
 
 
@@ -158,17 +159,21 @@ bool main_loop(struct repeating_timer *t) {
 
   ekf.predict(gyro, dt);
   ekf.update(acc, mag);
-  // tcf.TRIAD(acc, mag);
-  // tcf.integrate(gyro, dt);
-  // tcf.combine();
+  tcf.TRIAD(acc, mag);
+  tcf.integrate(gyro, dt);
+  tcf.combine();
 
   // printf("\nqhat[0] = %f\tqhat[1] = %f\tqhat[2] = %f\tqhat[3] = %f\t", ekf.q[0],ekf.q[1],ekf.q[2],ekf.q[3]);
   
-  // euler.getEulerangles(ekf.q);
-  // euler.getEulerangles(tcf.q);
+  euler_ekf.getEulerangles(ekf.q);
+  euler_tcf.getEulerangles(tcf.qHat);
 
-  std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
 
+  std::vector<double> data = {euler_ekf.roll, euler_ekf.pitch, euler_ekf.yaw, euler_tcf.roll, euler_tcf.pitch, euler_tcf.yaw};
+
+  // std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
+
+  // std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
   // for(int i=0;i<data.size();i++){
   //   printf("data[%i]=%.3f\t", i, data[i]);
   // }
