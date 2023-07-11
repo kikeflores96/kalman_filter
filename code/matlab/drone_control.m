@@ -87,7 +87,7 @@ C0 = connect(PID_roll, PID_pitch, PID_yaw, sum1, sum2, sum3,...
  
 
 % Define el rango de frecuencias
-wc = [1e0, 1e5];
+wc = [1e-1, 1e3];
 % Define las opciones del algoritmo de ajuste
 options = looptuneOptions('RandomStart',20);
 
