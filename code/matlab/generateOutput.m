@@ -20,7 +20,7 @@ u_ekf = input(1:3,:);
 u_tcf = input(4:6,:);
 t = dt*[0:1:length(input)-1];
 
-fc = 5;
+fc = 0.1;
 
 u = u_ekf;
 
@@ -33,12 +33,13 @@ for i=2:length(u)
     yaw_dot(i) = yaw_dot(i-1) + dt/(fc + dt)*(yaw_dot_raw(i) - yaw_dot(i-1));
 end
 
-%%
 
-u(3,2:end)  = (u(3,2:end) - u(3,1:end-1))/dt;
-u(3,1)      = 0;
+% plot(t, yaw_dot); hold on;
+% plot(t, yaw_dot_raw)
 
-u(3,:) = 0;
+
+u(3,:) = yaw_dot;
+% u(3,:) = 0;
 
 % t = t(360:420) - t(360);
 % u = u(:, 360:420);
@@ -63,8 +64,8 @@ tau_yaw = y(:,3);
 % Constante de proporcionalidad entre la señal de entrada y la fuerza del
 % motor en N
 k1      = 10;        % [N/input^2]        
-k2      = 0.12;      % [N*m/input^2]
-l       = 0.2;     % [m] brazo del par de roll/pitch
+k2      = 1;      % [N*m/input^2]
+l       = 0.10;     % [m] brazo del par de roll/pitch
 m       = 1.2;        % Masa del drone en [kg]
 g       = 9.91;     % [m/s^2]
 
@@ -91,16 +92,24 @@ Rotor = Rotor2.^(0.5);
 f1 = figure(1);
 f1.Color = 'w';
 subplot(3,1,1)
+yyaxis left;
 plot(t, u(1:2,:)'*180/pi)
+ylabel('Angle [\circ]', 'Fontsize', 20)
+
+yyaxis right;
+plot(t, u(3,:)*180/pi);
+ylabel('$\dot{\psi} [^\circ/s]$', 'Fontsize', 20, 'interpreter', 'latex')
 xlim([0, 10]);
 legend('\phi', '\theta', 'Fontsize', 14);
-ylabel('Angle [\circ]', 'Fontsize', 20)
+
 grid on
 subplot(3,1,2)
 plot(t, tau_roll), hold on
-plot(t, tau_pitch)
+plot(t, tau_pitch), hold on
+plot(t, tau_yaw)
+
 xlim([0, 10]);
-legend('\tau_\phi', '\tau_\theta', 'Fontsize', 14);
+legend('\tau_\phi', '\tau_\theta', '\tau_\psi', 'Fontsize', 14);
 ylabel('Torque [N m]', 'Fontsize', 20)
 grid on
 subplot(3,1,3)
