@@ -1,4 +1,4 @@
-%% ------------------------------------------------------------------------ 
+%% ------------------------------------------------------------------------
 % Controladores en modelo no lineal
 %--------------------------------------------------------------------------
 clear all
@@ -7,7 +7,11 @@ close all
 load drone_multiloop.mat 'K'
 controller = ss(K);
 
+
 filename = 'input.csv';
+filename = 'pitch.csv';
+% filename = 'roll.csv';
+% filename = 'yaw.csv';
 input = csvread(filename)';
 
 
@@ -16,12 +20,30 @@ u_ekf = input(1:3,:);
 u_tcf = input(4:6,:);
 t = dt*[0:1:length(input)-1];
 
+fc = 5;
+
 u = u_ekf;
 
-t = t(360:420) - t(360);
-u = u(:, 360:420);
+yaw = u(3,:);
+yaw_dot = zeros(length(u), 1);
+yaw_dot_raw = zeros(length(u), 1);
 
-u(3,:) = u(3,:) - u(3,1);
+for i=2:length(u)
+    yaw_dot_raw(i) = (yaw(i) - yaw(i-1))/dt;
+    yaw_dot(i) = yaw_dot(i-1) + dt/(fc + dt)*(yaw_dot_raw(i) - yaw_dot(i-1));
+end
+
+%%
+
+u(3,2:end)  = (u(3,2:end) - u(3,1:end-1))/dt;
+u(3,1)      = 0;
+
+u(3,:) = 0;
+
+% t = t(360:420) - t(360);
+% u = u(:, 360:420);
+%
+% u(3,:) = u(3,:) - u(3,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -40,16 +62,16 @@ tau_yaw = y(:,3);
 
 % Constante de proporcionalidad entre la señal de entrada y la fuerza del
 % motor en N
-k1      = 10;        % [N/input^2]         
-k2      = 2;        % [N*m/input^2]
-l       = 0.15;     % [m] brazo del par de roll/pitch
-m       = 1;        % Masa del drone en [kg]
+k1      = 10;        % [N/input^2]        
+k2      = 0.12;      % [N*m/input^2]
+l       = 0.2;     % [m] brazo del par de roll/pitch
+m       = 1.2;        % Masa del drone en [kg]
 g       = 9.91;     % [m/s^2]
 
 % Matriz de mezclado
 
-M = [  k1,    k1,    k1,   k1; 
-    -l*k1, -l*k1,  l*k1, l*k1; 
+M = [  k1,    k1,    k1,   k1;
+    -l*k1, -l*k1,  l*k1, l*k1;
      l*k1, -l*k1, -l*k1, l*k1;
        k2,   -k2,    k2,  -k2];
 
@@ -64,8 +86,29 @@ Rotor2 = tau*(inv(M))';
 % tiempo
 Rotor = Rotor2.^(0.5);
 
-figure
-plot(t, u'*180/pi)
 
-figure
+
+f1 = figure(1);
+f1.Color = 'w';
+subplot(3,1,1)
+plot(t, u(1:2,:)'*180/pi)
+xlim([0, 10]);
+legend('\phi', '\theta', 'Fontsize', 14);
+ylabel('Angle [\circ]', 'Fontsize', 20)
+grid on
+subplot(3,1,2)
+plot(t, tau_roll), hold on
+plot(t, tau_pitch)
+xlim([0, 10]);
+legend('\tau_\phi', '\tau_\theta', 'Fontsize', 14);
+ylabel('Torque [N m]', 'Fontsize', 20)
+grid on
+subplot(3,1,3)
 plot(t, Rotor')
+xlim([0, 10]);
+legend('u_1', 'u_2', 'u_3', 'u_4', 'Fontsize', 14);
+ylabel('Input [-]', 'Fontsize', 20)
+xlabel('t[s]', 'Fontsize', 20)
+grid on
+
+f1.Position(3:4)=[1200,800];

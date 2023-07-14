@@ -96,5 +96,5 @@ numVariables = 13        # number of plots in 1 graph
 numVariables = 6        # number of plots in 1 graph
 s = serialPlot(portName, baudRate, dataNumBytes, numVariables)   # initializes all required variables
 time.sleep(2)
-Data, rawData = s.getSerialData(60)
-np.savetxt('std.csv', Data, delimiter=',', fmt='%f')
+Data, rawData = s.getSerialData(10)
+np.savetxt('yaw.csv', Data, delimiter=',', fmt='%f')
