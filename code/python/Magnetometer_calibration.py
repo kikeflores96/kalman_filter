@@ -112,9 +112,9 @@ def main():
     ax1 = axes[0]
     ax1.set_box_aspect(aspect = (1,1,1.4))
     ax1.scatter(magX, magY, magZ, s=5, color='r')
-    ax1.set_xlabel('$\\tilde{h}_x$')
-    ax1.set_ylabel('$\\tilde{h}_y$')
-    ax1.set_zlabel('$\\tilde{h}_z$')
+    ax1.set_xlabel('$\\tilde{m}_x$')
+    ax1.set_ylabel('$\\tilde{m}_y$')
+    ax1.set_zlabel('$\\tilde{m}_z$')
     
     # plot unit sphere
     u = np.linspace(0, 2 * np.pi, 100)
@@ -158,9 +158,9 @@ def main():
     # axes[1] = plt.axes(projection='3d')
     ax2 = axes[1]
     ax2.scatter(calibratedX, calibratedY, calibratedZ, s=1, color='r')
-    ax2.set_xlabel('$\\tilde{h}_x$')
-    ax2.set_ylabel('$\\tilde{h}_y$')
-    ax2.set_zlabel('$\\tilde{h}_z$')
+    ax2.set_xlabel('$\\tilde{m}_x$')
+    ax2.set_ylabel('$\\tilde{m}_y$')
+    ax2.set_zlabel('$\\tilde{m}_z$')
     ax2.set_box_aspect(aspect = (1,1,1))
 
     # plot unit sphere

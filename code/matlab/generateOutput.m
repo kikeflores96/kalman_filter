@@ -10,8 +10,8 @@ controller = ss(K);
 
 filename = 'input.csv';
 filename = 'pitch.csv';
-% filename = 'roll.csv';
-% filename = 'yaw.csv';
+filename = 'roll.csv';
+filename = 'yaw.csv';
 input = csvread(filename)';
 
 
@@ -20,7 +20,7 @@ u_ekf = input(1:3,:);
 u_tcf = input(4:6,:);
 t = dt*[0:1:length(input)-1];
 
-fc = 0.1;
+fc = 0.2;
 
 u = u_ekf;
 
@@ -63,10 +63,10 @@ tau_yaw = y(:,3);
 
 % Constante de proporcionalidad entre la señal de entrada y la fuerza del
 % motor en N
-k1      = 10;        % [N/input^2]        
-k2      = 1;      % [N*m/input^2]
+k1      = 5;        % [N/input^2]        
+k2      = 0.5;      % [N*m/input^2]
 l       = 0.10;     % [m] brazo del par de roll/pitch
-m       = 1.2;        % Masa del drone en [kg]
+m       = 1.0;        % Masa del drone en [kg]
 g       = 9.91;     % [m/s^2]
 
 % Matriz de mezclado
@@ -91,7 +91,10 @@ Rotor = Rotor2.^(0.5);
 
 f1 = figure(1);
 f1.Color = 'w';
+
 subplot(3,1,1)
+ax=gca;
+ax.FontSize = 14;
 yyaxis left;
 plot(t, u(1:2,:)'*180/pi)
 ylabel('Angle [\circ]', 'Fontsize', 20)
@@ -100,22 +103,28 @@ yyaxis right;
 plot(t, u(3,:)*180/pi);
 ylabel('$\dot{\psi} [^\circ/s]$', 'Fontsize', 20, 'interpreter', 'latex')
 xlim([0, 10]);
-legend('\phi', '\theta', 'Fontsize', 14);
+legend('\phi', '\theta', 'Fontsize', 16);
 
 grid on
 subplot(3,1,2)
+
 plot(t, tau_roll), hold on
 plot(t, tau_pitch), hold on
 plot(t, tau_yaw)
+ax=gca;
+ax.FontSize = 14;
 
 xlim([0, 10]);
-legend('\tau_\phi', '\tau_\theta', '\tau_\psi', 'Fontsize', 14);
+legend('\tau_\phi', '\tau_\theta', '\tau_\psi', 'Fontsize', 16);
 ylabel('Torque [N m]', 'Fontsize', 20)
 grid on
 subplot(3,1,3)
+
 plot(t, Rotor')
+ax=gca;
+ax.FontSize = 14;
 xlim([0, 10]);
-legend('u_1', 'u_2', 'u_3', 'u_4', 'Fontsize', 14);
+legend('U_1', 'U_2', 'U_3', 'U_4', 'Fontsize', 14);
 ylabel('Input [-]', 'Fontsize', 20)
 xlabel('t[s]', 'Fontsize', 20)
 grid on

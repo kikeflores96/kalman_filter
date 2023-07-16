@@ -87,27 +87,36 @@ C0 = connect(PID_roll, PID_pitch, PID_yaw, sum1, sum2, sum3,...
  
 
 % Define el rango de frecuencias
-wc = [1e-1, 1e2];
+wc = [1e1, 1e3];
 
 % Define las opciones del algoritmo de ajuste
-options = looptuneOptions('RandomStart',20, 'MinDecay', 0.5);
-
+% options = looptuneOptions('MinDecay', 0.1);
+options = looptuneOptions();
+% options = looptuneOptions('RandomStart',20);
 % Calcula el controlador C ajustado
 [G, C, gam, Info] = looptune(G, C0, wc, options);
 
+
 % Imprime por pantalla las propiedades del controlador ajustado
-showTunable(C)
+
 
 %  Asigna los valores de los PIDS ajustados a los bloques iniciales
+
+C.Blocks.PID_roll.Kp = C.Blocks.PID_pitch.Kp;
+C.Blocks.PID_roll.Ki = C.Blocks.PID_pitch.Ki;
+C.Blocks.PID_roll.Kd = C.Blocks.PID_pitch.Kd;
+C.Blocks.PID_roll.Tf = C.Blocks.PID_pitch.Tf;
+
+
+C.Blocks.PID_yaw.Kp.Value = C.Blocks.PID_yaw.Kp.Value/20;
+C.Blocks.PID_yaw.Ki.Value = C.Blocks.PID_yaw.Ki.Value/20;
+C.Blocks.PID_yaw.Kd.Value = C.Blocks.PID_yaw.Kd.Value/20;
+
+
 PID_roll.Kp = C.Blocks.PID_roll.Kp;
 PID_roll.Ki = C.Blocks.PID_roll.Ki;
 PID_roll.Kd = C.Blocks.PID_roll.Kd;
 PID_roll.Tf = C.Blocks.PID_roll.Tf;
-
-% PID_roll.Kp = C.Blocks.PID_pitch.Kp;
-% PID_roll.Ki = C.Blocks.PID_pitch.Ki;
-% PID_roll.Kd = C.Blocks.PID_pitch.Kd;
-% PID_roll.Tf = C.Blocks.PID_pitch.Tf;
 
 PID_pitch.Kp = C.Blocks.PID_pitch.Kp;
 PID_pitch.Ki = C.Blocks.PID_pitch.Ki;
@@ -118,6 +127,10 @@ PID_yaw.Kp = C.Blocks.PID_yaw.Kp;
 PID_yaw.Ki = C.Blocks.PID_yaw.Ki;
 PID_yaw.Kd = C.Blocks.PID_yaw.Kd;
 PID_yaw.Tf = C.Blocks.PID_yaw.Tf;
+
+showTunable(C)
+
+
 
 % Conecta los PIDs para format el controlador diagonal
 K = connect(PID_roll, PID_pitch, PID_yaw,  {'\Delta\phi', '\Delta\theta', '\Delta\psi^t'}, {'\tau_\phi', '\tau_\theta', '\tau_\psi'});
@@ -132,10 +145,10 @@ K = connect(PID_roll, PID_pitch, PID_yaw,  {'\Delta\phi', '\Delta\theta', '\Delt
 
 % Matriz de transferencia en lazo abierto L = GK
 L = connect(G, PID_roll, PID_pitch, PID_yaw, {'\Delta\phi', '\Delta\theta', '\Delta\psi^t'}, {'\phi', '\theta', '\psi^t'});
-L_tf = tf(L)
-L_zp = zpk(L);
-pole(L)
-tzero(L)
+L_tf = minreal(tf(L), 1e-2);
+L_zp = minreal(zpk(L), 1e-2);
+pole(L_tf)
+tzero(L_tf)
 % Matriz de sensibilidad S = (1 + GK)^-1
 S = inv(eye(3)  + L_tf);
 pole(S)
@@ -143,108 +156,19 @@ tzero(S)
 % Matriz de sensibilidad complementaria T(s) = (1 + GK)^-1 GK
 T = connect(G,C,{'\phi_r', '\theta_r', '\psi^t_r'},{'\phi', '\theta', '\psi^t'});
 T_tf = minreal(zpk(T), 1e-2);
-pole(T)
-tzero(T)
+pole(T_tf)
+tzero(T_tf)
 
 
 % Calcula la ganancia en estado estacionario REF-->OUT
 Tss = evalfr(T,0)  ;             % Steady State Gain Matrix SSGM
 
-% ------------------------------------------------------------------------
-% Diagrama de Nyquist Directo
-% ------------------------------------------------------------------------
-% Rango de frecuencias
-
-wout = logspace(-1,5,256);
-[re, im, wout] = nyquist(L, wout);
-
-close all
-
-f = figure(1);
-f.Color = 'w';
-f.Position(3:4) = [700, 600];
-ax=gca;
-ax.FontSize = 15;
-
-subplot(2,2,1)
-plot(reshape(re(1,1,:), [length(wout),1]), ...
-    reshape(im(1,1,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(reshape(re(1,1,:), [length(wout),1]), ...
-    -reshape(im(1,1,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(-1, 0, 'kx', 'Markersize', 10)
-hold on
-plot([-200, 200], [0, 0], 'k:')
-hold on
-plot([0, 0], [-200, 200], 'k:')
-hold on
-xlabel('Re[L_{11}(j\omega)]',  'FontSize', 15);
-ylabel('Im[L_{11}(j\omega)]',  'FontSize', 15);
-xlim([-10, 10]);
-ylim([-10, 10]);
-grid on
-subplot(2,2,2)
-plot(reshape(re(1,2,:), [length(wout),1]), ...
-    reshape(im(1,2,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(reshape(re(1,2,:), [length(wout),1]), ...
-    -reshape(im(1,2,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(-1, 0, 'kx', 'Markersize', 10)
-hold on
-plot([-200, 200], [0, 0], 'k:')
-hold on
-plot([0, 0], [-200, 200], 'k:')
-hold on
-xlim([-10, 10]);
-ylim([-10, 10]);
-grid on
-xlabel('Re[L_{12}(j\omega)]',  'FontSize', 15);
-ylabel('Im[L_{12}(j\omega)]',  'FontSize', 15);
-
-subplot(2,2,3)
-plot(reshape(re(2,1,:), [length(wout),1]), ...
-    reshape(im(2,1,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(reshape(re(2,1,:), [length(wout),1]), ...
-    -reshape(im(2,1,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(-1, 0, 'kx', 'Markersize', 10)
-hold on
-plot([-200, 200], [0, 0], 'k:')
-hold on
-plot([0, 0], [-200, 200], 'k:')
-hold on
-xlim([-10, 10]);
-ylim([-10, 10]);
-grid on
-xlabel('Re[L_{21}(j\omega)]',  'FontSize', 15);
-ylabel('Im[L_{21}(j\omega)]',  'FontSize', 15);
-subplot(2,2,4)
-plot(reshape(re(2,2,:), [length(wout),1]), ...
-    reshape(im(2,2,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(reshape(re(2,2,:), [length(wout),1]), ...
-    -reshape(im(2,2,:), [length(wout),1]), 'LineWidth',1,'Color','b')
-hold on
-plot(-1, 0, 'kx', 'Markersize', 10)
-hold on
-plot([-200, 200], [0, 0], 'k:')
-hold on
-plot([0, 0], [-200, 200], 'k:')
-hold on
-xlim([-10, 10]);
-ylim([-10, 10]);
-grid on
-xlabel('Re[L_{22}(j\omega)]',  'FontSize', 15);
-ylabel('Im[L_{22}(j\omega)]',  'FontSize', 15);
 
 
-% ------------------------------------------------------------------------
+%% ------------------------------------------------------------------------
 % Diagrama de Nyquist Generalizado
 % ------------------------------------------------------------------------
-
+close all
 
 wout1   = logspace(-1,5,256);
 wout2   = -logspace(5,-1, 256);
@@ -279,18 +203,18 @@ plot([0, 0], [-200, 200], 'k:')
 hold on
 xlabel('Re[det(I + L(j\omega))] - 1',  'FontSize', 20);
 ylabel('Im[det(I + L(j\omega))]',  'FontSize', 20);
-xlim([-5, 15]);
+xlim([-15, 5]);
 ylim([-10, 10]);
 
-xlim([-50, 150]);
-ylim([-100, 100]);
+% xlim([-50, 150]);
+% ylim([-100, 100]);
 grid on
 
 % ------------------------------------------------------------------------
 % Step Response
 % -------------------------------------------------------------------------
 
-close all
+
 f3 = figure(3);
 f3.Color = 'w';
 subplot(1,3,1)
@@ -330,6 +254,7 @@ grid on
 f4.Position(3:4)=[1200,600];
 h1=findall(f4);
 % To find the line object handle from the list of graphic object handles
+
 
 save('drone_multiloop.mat', 'L', 'L_zp', 'T_tf', 'T', 'K')
 

@@ -109,7 +109,7 @@ for i in range(v.shape[0]):
     v_c[i] = np.matmul(A, np.matmul(np.linalg.inv(K), (v[i].T - B)))
 
     
-#%%
+
 
 plt.close('all')
 
@@ -117,11 +117,11 @@ n=3
 
 
 f, ax = plt.subplots(n, 2, constrained_layout = True, figsize = (14, 8.5))
-ax[0,0].set_title('$\mathrm{No calibration}$')
-ax[0,1].set_title('$\mathrm{Calibrated}$')
+ax[0,0].set_title('$\mathrm{Sin~calibracion}$')
+ax[0,1].set_title('$\mathrm{Con~calibracion}$')
 for i in range(n):
-    if i==2:
-        data = np.genfromtxt('acc_cal_{:1.0f}_b.csv'.format(i+2), dtype = float, delimiter=',').T
+    if i==1:
+        data = np.genfromtxt('acc_cal_{:1.0f}_b.csv'.format(i+1), dtype = float, delimiter=',').T
     else:
         data = np.genfromtxt('acc_cal_{:1.0f}_b.csv'.format(i+1), dtype = float, delimiter=',').T
     
@@ -149,10 +149,10 @@ for i in range(n):
     if i==0:
         ax1.legend(ncol = 3, fontsize = 16, loc = 'best')
     
-    ax1.set_ylabel('$a\>\mathrm{[m\>s^{-2}]}$')
+    ax1.set_ylabel('$\mathbf{a}\>\mathrm{[m\>s^{-2}]}$')
     ax1.grid(True)
     ax1.set_xlim([0, time[-1]])
-    ax1.set_ylim([-3, 11])
+    ax1.set_ylim([-12, 12])
     
     
     ax2 = ax[i, 1]
@@ -171,7 +171,7 @@ for i in range(n):
         ax2.set_xlabel('$t\>\mathrm{[s]}$')
     
     ax2.set_xlim([0, time[-1]])
-    ax2.set_ylim([-3, 11])
+    ax2.set_ylim([-12, 12])
     
     ax2.grid(True)
     plt.show()

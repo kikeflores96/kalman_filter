@@ -169,13 +169,13 @@ bool main_loop(struct repeating_timer *t) {
   euler_tcf.getEulerangles(tcf.qHat);
 
 
-  std::vector<double> data = {euler_ekf.roll, euler_ekf.pitch, euler_ekf.yaw, euler_tcf.roll, euler_tcf.pitch, euler_tcf.yaw};
+  // std::vector<double> data = {euler_ekf.roll, euler_ekf.pitch, euler_ekf.yaw, euler_tcf.roll, euler_tcf.pitch, euler_tcf.yaw};
   
   // std::vector<double> data = mag;
 
   // std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), tcf.qHat);
 // 
-  // std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
+  std::vector<double> data = concatenateVectors(concatenateVectors(concatenateVectors(gyro, acc), mag), ekf.q);
   // // for(int i=0;i<data.size();i++){
   //   printf("data[%i]=%.3f\t", i, data[i]);
   // }

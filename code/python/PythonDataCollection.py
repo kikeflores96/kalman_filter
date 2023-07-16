@@ -93,8 +93,8 @@ portName = '/dev/ttyACM0'
 baudRate = 115200
 dataNumBytes = 8        # number of bytes of 1 data point
 numVariables = 13        # number of plots in 1 graph
-numVariables = 6        # number of plots in 1 graph
+# numVariables = 6        # number of plots in 1 graph
 s = serialPlot(portName, baudRate, dataNumBytes, numVariables)   # initializes all required variables
 time.sleep(2)
-Data, rawData = s.getSerialData(10)
-np.savetxt('yaw.csv', Data, delimiter=',', fmt='%f')
+Data, rawData = s.getSerialData(30)
+np.savetxt('Gyroscope_calibration_unbiased.csv', Data, delimiter=',', fmt='%f')
